@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import useDebouncer from "../../Hooks/useDebouncer";
 import { useNavigate } from "react-router-dom";
+import { appContext } from "../../common/context";
 
-function Search() {
+function Homepage() {
   const [data, setData] = useState([]);
-  const [search, setSrch] = useState("");
-
+  //   const [search, setSrch] = useState("");
+  const { search } = useContext(appContext);
   const navigate = useNavigate();
 
-  const debounceTerm = useDebouncer(search, 300);
+  const debounceTerm = useDebouncer(search, 200);
 
   const options = {
     method: "GET",
@@ -43,7 +43,7 @@ function Search() {
   };
 
   useEffect(() => getData(), [debounceTerm]);
-  const price = data.map((el) => el.price);
+  //   const price = data.map((el) => el.price);
 
   return (
     <div className="App">
@@ -54,10 +54,10 @@ function Search() {
           alt="logo"
         />
       </div>
-      {data.slice(0, 10).map((el) => (
+      {data.slice(0, 15).map((el) => (
         <div key={el.uuid} onClick={() => navigate(`/${el.uuid}`)}>
-          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 h-[80px]  overflow-hidden">
-            <img src={el.iconUrl} width={50} />
+          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+            <img src={el.iconUrl} width={50} alt={el.name} />
             <div className="w-20">{el.name}</div>
             <div className="w-20">{el.price}</div>
             <div className="w-20">{el["24hVolume"]}</div>
@@ -87,14 +87,4 @@ function Search() {
   );
 }
 
-export default Search;
-
-{
-  /* <form>
-        <input
-          type={"text"}
-          value={search}
-          onChange={(e) => setSrch(e.target.value)}
-        ></input>
-      </form> */
-}
+export default Homepage;

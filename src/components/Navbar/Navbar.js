@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { appContext } from "../../common/context";
 
 const NavBar = () => {
+  const { search, setSearch } = useContext(appContext);
+
   let activeClassName =
     "block py-2 pr-4 pl-3 text-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
   let dissclass =
@@ -67,9 +70,9 @@ const NavBar = () => {
             </li>
           </ul>
           <div className="Search">
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <label
-                // for="default-search"
+                for="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
               >
                 Search
@@ -93,11 +96,12 @@ const NavBar = () => {
                   </svg>
                 </div>
                 <input
-                  type="search"
+                  type="text"
                   id="default-search"
                   className="block p-4 pl-10  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-70 h-9"
                   placeholder="Search "
-                  required
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
             </form>{" "}
