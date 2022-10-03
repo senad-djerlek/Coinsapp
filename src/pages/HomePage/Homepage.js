@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import useDebouncer from "../../Hooks/useDebouncer";
+import useDebounce from "../../Hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
 
 function Homepage() {
   const [data, setData] = useState([]);
-  //   const [search, setSrch] = useState("");
   const { search } = useContext(appContext);
   const navigate = useNavigate();
 
-  const debounceTerm = useDebouncer(search, 200);
+  const debounceTerm = useDebounce(search, 200);
 
   const options = {
     method: "GET",
@@ -43,11 +42,9 @@ function Homepage() {
   };
 
   useEffect(() => getData(), [debounceTerm]);
-  const price = data.map((el) => el.price);
 
   return (
-    <div className="App">
-      <br />
+    <div>
       <div>
         <img
           src="https://img.freepik.com/premium-vector/crypto-currency-horizontal-banner-bitcoin-digital-web-money-technology_48369-13318.jpg?w=2000"
@@ -58,8 +55,12 @@ function Homepage() {
         <div key={el.uuid} onClick={() => navigate(`/${el.uuid}`)}>
           <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden">
             <img src={el.iconUrl} width={50} alt={el.name} />
-            <div className="w-20">{el.name}</div>
-            <div className="w-20">{el.price}</div>
+            <div className="w-20">
+              <p>{el.name}</p>
+            </div>
+            <div className="w-20">
+              <p>{el.price}</p>
+            </div>
             <div className="w-20">{el["24hVolume"]}</div>
             <div className="w-20">{el.marketCap}</div>
             <div>Grafikon</div>

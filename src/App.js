@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Coin from "./pages/Coin/Coin";
 import NavBar from "./components/Navbar/Navbar";

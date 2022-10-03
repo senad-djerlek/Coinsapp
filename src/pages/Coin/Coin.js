@@ -16,22 +16,21 @@ function Coin() {
     },
   };
   const getData = () => {
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data.data.coin);
-        setData(response.data.data.coin);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    axios.request(options).then(function (response) {
+      console.log(response.data.data.coin);
+      setData(response.data.data.coin);
+    });
   };
 
   useEffect(() => {
     getData();
   }, []);
 
-  return <div>{uuid}</div>;
+  return (
+    <div>
+      <div>{data?.name}</div>
+    </div>
+  );
 }
 
 export default Coin;
