@@ -43,7 +43,7 @@ function Homepage() {
   };
 
   useEffect(() => getData(), [debounceTerm]);
-  //   const price = data.map((el) => el.price);
+  const price = data.map((el) => el.price);
 
   return (
     <div className="App">
