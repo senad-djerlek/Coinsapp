@@ -60,14 +60,15 @@ function Coin() {
       </div>
       <div className="flex">
         <div>
-          <div className="ml-2 text-lg">Value statistics</div>
+          <div className="ml-4 text-lg">Value statistics</div>
           <div>
-            <p>
+            <p className="ml-4 text-indigo-500">
               An overview showing the statistics of Bitcoin, such as the base
-              and quote currency, the rank, and trading volume.
+              and quote currency <br></br>the rank, and trading volume.
             </p>
           </div>
-          <div className="flex items-center justify-around">
+
+          <div className="flex items-center justify-around ">
             <svg
               class="h-10 w-5 text-blue-500"
               viewBox="0 0 24 24"
@@ -84,6 +85,7 @@ function Coin() {
             <h1>Price to EUR</h1>
             <h3>{coin?.price}</h3>
           </div>
+          <hr />
           <div className="flex items-center justify-around">
             <svg
               class="h-10 w-5 text-blue-500"
@@ -101,6 +103,7 @@ function Coin() {
             <h1>Price to BTC</h1>
             <h3>{coin?.price}</h3>
           </div>
+          <hr />
           <div className="flex items-center justify-around">
             <svg
               class="h-10 w-5 text-blue-500"
@@ -118,6 +121,7 @@ function Coin() {
             <h1>Rank</h1>
             <h3>{coin?.price}</h3>
           </div>
+          <hr />
           <div className="flex items-center justify-around">
             <svg
               class="h-10 w-5 text-blue-500"
@@ -135,6 +139,7 @@ function Coin() {
             <h1>24h volume</h1>
             <h3>{coin?.price}</h3>
           </div>
+          <hr />
           <div className="flex items-center justify-around">
             <svg
               class="h-10 w-5 text-blue-500"
@@ -152,6 +157,7 @@ function Coin() {
             <h1>Market cap</h1>
             <h3>{coin?.price}</h3>
           </div>
+          <hr />
           <div className="flex items-center justify-around">
             <svg
               class="h-10 w-5 text-blue-500"
@@ -169,6 +175,7 @@ function Coin() {
             <h1>Fully diluted market cap</h1>
             <h3>{coin?.price}</h3>
           </div>
+          <hr />
           <div className="flex items-center justify-around">
             <svg
               class="h-10 w-5 text-blue-500"
@@ -183,12 +190,59 @@ function Coin() {
               <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />{" "}
               <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
             </svg>
+            <hr />
             <h1>All-time high (daily avg.)</h1>
             <h3>{coin?.price}</h3>
           </div>
         </div>
-        <div>2</div>
+        <div className="ml-8">
+          <h1 className="flex items-center justify-center">
+            Supply information
+          </h1>
+          <p className="ml-12">
+            View the total and circulating supply of Bitcoin, including details
+            on how the supplies are calculated.
+          </p>
+          <div
+            style={{
+              background: "#f1f6ff",
+            }}
+            className="w-2/3 rounded h-80 ml-9   "
+          >
+            <div className="flex ">
+              <svg
+                className="h-10 w-10 text-green-500 flex justify-around mt-7 ml-10"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                {" "}
+                <path stroke="none" d="M0 0h24v24H0z" />{" "}
+                <circle cx="12" cy="12" r="9" /> <path d="M9 12l2 2l4 -4" />
+              </svg>
+              <h2 className="text-green-500 mt-7">Verified supplys</h2>
+            </div>
+            <div className="ml-3 ">
+              <p>Updated 2 minutes ago</p>
+              <hr />
+              <p className="mt-8">Total supply</p>
+              <hr />
+              <p className="mt-4">Max supply </p>
+              <hr />
+              <p className="mt-4">Total supply</p>
+              <hr />
+              <p className="mt-4">Issuance blockchain</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <h1>What is Bitcoin</h1>
+      <div dangerouslySetInnerHTML={{ __html: coin?.description }} />
     </div>
   );
 }

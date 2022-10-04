@@ -59,12 +59,12 @@ function Homepage() {
               src={el.iconUrl}
               width={50}
               alt={el.name}
-              onClick={() => navigate(`/${el.uuid}`)}
+              onClick={() => navigate(`/coins/${el.uuid}`)}
               className="cursor-pointer"
             />
             <div
               className="w-20 cursor-pointer"
-              onClick={() => navigate(`/${el.uuid}`)}
+              onClick={() => navigate(`/coins/${el.uuid}`)}
             >
               <p>{el.name}</p>
             </div>
