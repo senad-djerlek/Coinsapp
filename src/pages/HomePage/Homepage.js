@@ -53,7 +53,7 @@ function Homepage() {
       </div>
       {data.slice(0, 15).map((el) => (
         <div key={el.uuid} onClick={() => navigate(`/${el.uuid}`)}>
-          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+          <div className="border-2 border-indigo-400  w-94 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden">
             <img src={el.iconUrl} width={50} alt={el.name} />
             <div className="w-20">
               <p>{el.name}</p>
