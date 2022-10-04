@@ -3,9 +3,13 @@ import axios from "axios";
 import useDebounce from "../../Hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
+import Pages from "../../components/Pagination/Pagination";
 
-function Homepage() {
+function Coinspage() {
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(12);
+
   const { search, fav, setFav } = useContext(appContext);
   const navigate = useNavigate();
 
@@ -20,7 +24,7 @@ function Homepage() {
       "tiers[0]": "1",
       orderBy: "marketCap",
       orderDirection: "desc",
-      limit: "50",
+      limit: "100",
       offset: "0",
       search: search,
       uuid: "razxDUgYGNAdQ",
@@ -44,29 +48,18 @@ function Homepage() {
 
   useEffect(() => getData(), [debounceTerm]);
 
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const currentPosts = data.slice(firstPostIndex, lastPostIndex);
+
   return (
-    <div>
-      <div>
-        <img
-          src="https://img.freepik.com/premium-vector/crypto-currency-horizontal-banner-bitcoin-digital-web-money-technology_48369-13318.jpg?w=2000"
-          alt="logo"
-        />
-      </div>
-      {data.slice(0, 15).map((el) => (
+    <div className="w-full flex flex-col justify-center">
+      {currentPosts.slice(0, 15).map((el) => (
         <div key={el.uuid}>
-          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 mr-10 h-[80px]  overflow-hidden">
-            <img
-              src={el.iconUrl}
-              width={50}
-              alt={el.name}
-              onClick={() => navigate(`/${el.uuid}`)}
-              className="cursor-pointer"
-            />
-            <div
-              className="w-20 cursor-pointer"
-              onClick={() => navigate(`/${el.uuid}`)}
-            >
-              <p>{el.name}</p>
+          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+            <img src={el.iconUrl} width={50} alt={el.name} />
+            <div className="w-20" onClick={() => navigate(`/${el.uuid}`)}>
+              <p style={{ cursor: "pointer" }}>{el.name}</p>
             </div>
             <div className="w-20">
               <p>{el.price}</p>
@@ -112,8 +105,13 @@ function Homepage() {
           </div>
         </div>
       ))}
+      <Pages
+        totalPosts={data.length}
+        postPerPage={postPerPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }
 
-export default Homepage;
+export default Coinspage;
