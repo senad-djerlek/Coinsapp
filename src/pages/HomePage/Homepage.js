@@ -52,10 +52,19 @@ function Homepage() {
         />
       </div>
       {data.slice(0, 15).map((el) => (
-        <div key={el.uuid} onClick={() => navigate(`/${el.uuid}`)}>
-          <div className="border-2 border-indigo-400  w-94 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden">
-            <img src={el.iconUrl} width={50} alt={el.name} />
-            <div className="w-20">
+        <div key={el.uuid}>
+          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 mr-10 h-[80px]  overflow-hidden">
+            <img
+              src={el.iconUrl}
+              width={50}
+              alt={el.name}
+              onClick={() => navigate(`/${el.uuid}`)}
+              className="cursor-pointer"
+            />
+            <div
+              className="w-20 cursor-pointer"
+              onClick={() => navigate(`/${el.uuid}`)}
+            >
               <p>{el.name}</p>
             </div>
             <div className="w-20">
