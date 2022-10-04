@@ -4,7 +4,7 @@ import NavBar from "./components/Navbar/Navbar";
 import Homepage from "./pages/HomePage/Homepage";
 import Footer from "./components/Footer/Footer";
 import Coinspage from "./pages/Coins/Coinspage";
-import Exchanges from "./pages/Coin/ExchangesPage/ExchangesPage";
+import Exchanges from "./pages/ExchangesPage/ExchangesPage";
 
 function App() {
   return (
