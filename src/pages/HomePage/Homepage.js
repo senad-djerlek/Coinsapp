@@ -69,7 +69,7 @@ function Homepage() {
               <p>{el.name}</p>
             </div>
             <div className="w-20">
-              <p>{el.price}</p>
+              <p> ${el.price}</p>
             </div>
             <div className="w-20">{el["24hVolume"]}</div>
             <div className="w-20">{el.marketCap}</div>
