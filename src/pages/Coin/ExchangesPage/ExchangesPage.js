@@ -24,18 +24,10 @@ export default function Exchanges() {
 
     try {
       const response = await axios.request(options);
-      // console.log(response.data.data.exchanges);
       setExchanges(response.data.data.exchanges);
     } catch (error) {
       console.log(error);
     }
-    // axios.request(options).then(function (response) {
-    //   console.log(response.data);
-    //   setCoin(response.data);
-    // })
-    // .catch(function (error) {
-    //   console.error(error);
-    // });
   };
 
   React.useEffect(() => {
@@ -43,18 +35,28 @@ export default function Exchanges() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <>
       {exchanges.map((exchange) => (
-        <div className="flex flex-row w-5/6 h-16 justify-between items-center border-4 my-3 p-3 border-indigo-400 rounded-md">
-          <img className=" w-6 h-6" src={exchange.iconUrl} alt="icon"></img>
-          <h3>{exchange.name}</h3>
-          <h3>Price: {exchange.price}</h3>
-          <h3>Rank: {exchange.rank}</h3>
-          <a href={exchange.coinrankingUrl} rel="noreferrer" target="_blank">
-            Open Exchange
-          </a>
+        <div key={exchange.uuid}>
+          <div className="border-2 border-indigo-400   flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden font-mono mr-10">
+            <img width={50} src={exchange.iconUrl} alt="icon"></img>
+            <div className="w-32">{exchange.name}</div>
+            <div className="w-20">{exchange.price}$</div>
+            <div className="w-20">Rank: {exchange.rank}</div>
+            <div className="w-36">
+              <div className="flex h-12 w-34 bg-indigo-200 justify-center items-center rounded-lg transition ease-in-out duration-250 hover:bg-sky-700 hover:text-white ">
+                <a
+                  href={exchange.coinrankingUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Open Exchange
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
