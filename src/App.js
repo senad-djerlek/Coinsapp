@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/coins" element={<Coinspage />} />
         <Route path="/exchanges" element={<Exchanges />} />
-        <Route path="/:uuid" element={<Coin />} />
+        <Route path="/coins/:uuid" element={<Coin />} />
       </Routes>
       <Footer />
     </div>

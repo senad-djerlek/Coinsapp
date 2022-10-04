@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
+import { Stack } from "@mui/material";
 
 const Pages = ({ totalPosts, postsPerPage, setCurrentPage }) => {
   const [page, setPage] = useState(1);
