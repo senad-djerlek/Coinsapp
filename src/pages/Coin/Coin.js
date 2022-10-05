@@ -79,51 +79,66 @@ function Coin() {
           </div>
 
           <div className="flex items-center justify-around  mt-9  ">
-            <PaidOutlinedIcon fontSize="large" color="primary" />
-            <h1>Price to EUR</h1>
-            <h3 className="font-bold">{coin?.price}</h3>
+            <div className="w-20 flex justify-center items-center">
+              <PaidOutlinedIcon fontSize="large" color="primary" />
+            </div>
+            <h1 className="w-28">Price to EUR</h1>
+            <h3 className="font-bold w-40">{coin?.price}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around mt-9">
-            <CurrencyBitcoinOutlinedIcon fontSize="large" color="primary" />
-            <h1>Price to BTC</h1>
-            <h3 className="font-bold">
+            <div className="w-20 flex justify-center items-center">
+              <CurrencyBitcoinOutlinedIcon fontSize="large" color="primary" />
+            </div>
+            <h1 className="w-28">Price to BTC</h1>
+            <h3 className="font-bold w-40">
               {coin?.priceAt} {coin?.symbol}
             </h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
 
-          <div className="flex items-center justify-around mt-9 mr-40  ">
-            <BarChartOutlinedIcon fontSize="large" color="primary" />
-            <h1>Rank</h1>
-            <h3 className="font-bold"> {coin?.rank}</h3>
+          <div className="flex items-center justify-around mt-9">
+            <div className="w-20 flex justify-center items-center">
+              <BarChartOutlinedIcon fontSize="large" color="primary" />
+            </div>
+            <h1 className="w-28">Rank</h1>
+            <h3 className="font-bold w-40"> {coin?.rank}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around w-3/2 mt-9">
-            <EggOutlinedIcon fontSize="large" color="primary" />
-            <h1>24h volume</h1>
-            <h3 className="font-bold"> {coin?.price}</h3>
+            <div className="w-20 flex justify-center items-center">
+              <EggOutlinedIcon fontSize="large" color="primary" />
+            </div>
+            <h1 className="w-28">24h volume</h1>
+            <h3 className="font-bold w-40"> {coin?.price}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
-          <div className="flex items-center justify-around mt-9 mr-20 ">
-            <WaterOutlinedIcon fontSize="large" color="primary" />
-            <h1>Market cap</h1>
-            <h3 className="font-bold">${coin?.supply.supplyAt}</h3>
+          <div className="flex items-center justify-around mt-9 ">
+            <div className="w-20 flex justify-center items-center">
+              <WaterOutlinedIcon fontSize="large" color="primary" />
+            </div>
+            <h1 className="w-28">Market cap</h1>
+            <h3 className="font-bold w-40">${coin?.supply.supplyAt}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around mt-9">
-            <WaterOutlinedIcon fontSize="large" color="primary" />
-            <h1>Fully diluted market cap</h1>
-            <h3 className="font-bold">${coin?.supply.circulating}</h3>
+            <div className="w-20 flex justify-center items-center ">
+              <WaterOutlinedIcon fontSize="large" color="primary" />
+            </div>
+            <h1 className="w-28 ">Fully diluted market cap</h1>
+            <h3 className="font-bold w-40 ">${coin?.supply.circulating}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around mt-9">
-            <BeenhereOutlinedIcon fontSize="large" color="primary" />
+            <div className="w-20 flex justify-center items-center ">
+              <BeenhereOutlinedIcon fontSize="large" color="primary" />
+            </div>
             <hr />
-            <h1>All-time high (daily avg.)</h1>
-            <h3 className="">${coin?.supply.total}</h3>
+            <h1 className="w-28 ">All-time high (daily avg.)</h1>
+            <h3 className="w-40 ">${coin?.supply.total}</h3>
           </div>
         </div>
+
         <div className="ml-12">
           <h1 className="flex items-center justify-center font-serif  text-3xl">
             Supply information
