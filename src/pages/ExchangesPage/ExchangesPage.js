@@ -55,7 +55,7 @@ export default function Exchanges() {
               <p className="font-bold text-sm">{exchange.price}$</p>
             </div>
             <div className="w-36">
-              <div className="flex h-12 w-34 bg-indigo-200 justify-center items-center rounded-lg transition ease-in-out duration-250 hover:bg-sky-700 hover:text-white ">
+              <div className="flex h-12 w-34 bg-indigo-100 justify-center items-center rounded-2xl rounded-br-none transition ease-in-out duration-250 hover:bg-indigo-700 hover:text-white hover:drop-shadow-2xl hover:rounded-br-2xl ">
                 <a
                   href={exchange.coinrankingUrl}
                   rel="noreferrer"
