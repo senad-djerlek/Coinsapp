@@ -176,13 +176,16 @@ function Coin() {
                 Total supply{" "}
                 <span className="  font-bold">$ {coin?.supply.total}</span>{" "}
               </p>
-              <hr />
             </div>
           </div>
         </div>
       </div>
-      <h1>What is Bitcoin</h1>
-      {/* <div dangerouslySetInnerHTML={{ __html: coin?.description }} /> */}
+      <h1 className="mt-9">What is Bitcoin</h1>
+
+      <div
+        className="px-3 pt-3 bg-blue-300"
+        dangerouslySetInnerHTML={{ __html: coin?.description }}
+      />
     </div>
   );
 }

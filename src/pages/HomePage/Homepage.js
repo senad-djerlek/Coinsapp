@@ -48,13 +48,24 @@ function Homepage() {
     <div>
       <div>
         <img
-          src="https://img.freepik.com/premium-vector/crypto-currency-horizontal-banner-bitcoin-digital-web-money-technology_48369-13318.jpg?w=2000"
+          className="w-full h-96"
+          src="https://hedextrade.com/images/home-pages/btc_bg-4.jpg"
           alt="logo"
         />
       </div>
+      <div className="px-54 pr-10   flex justify-around px-25 items-center rounded-md  mt-2 mb-2 mr-10 h-[55px]  overflow-hidden">
+        <h2 className="">Coins</h2>
+        <h2>Name</h2>
+        <h2 className="">Price</h2>
+        <h2>24hVolume</h2>
+        <h2>marketCap</h2>
+      </div>
+      <hr className="border-t-1 border-indigo-200 " />
       {data.slice(0, 15).map((el) => (
         <div key={el.uuid}>
-          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mt-2 mb-2 mr-10 h-[80px]  overflow-hidden">
+          <div className="    flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
+            <p>{el?.rank}</p>
+
             <img
               src={el.iconUrl}
               width={50}
@@ -69,11 +80,13 @@ function Homepage() {
               <p>{el.name}</p>
             </div>
             <div className="w-20">
-              <p> ${el.price}</p>
+              <p className="font-bold text-sm">${el.price}</p>
             </div>
-            <div className="w-20">{el["24hVolume"]}</div>
-            <div className="w-20">{el.marketCap}</div>
-            <div>Grafikon</div>
+            <div className="w-20 font-bold text-sm ml-16">
+              ${el["24hVolume"]}
+            </div>
+            <div className="w-20 font-bold text-sm ml-5">${el.marketCap}</div>
+            <img src="https://static.coinstats.app/sparks/bitcoin_1w.png" />
             <button onClick={() => setFav((prev) => !prev)}>
               {!fav ? (
                 <svg
@@ -110,6 +123,7 @@ function Homepage() {
               )}
             </button>
           </div>
+          <hr className="border-t-1 border-indigo-200" />
         </div>
       ))}
     </div>

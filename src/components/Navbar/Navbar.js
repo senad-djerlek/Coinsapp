@@ -12,7 +12,12 @@ const NavBar = () => {
 
   return (
     <div className="sticky top-0 ">
-      <nav className="bg-blue-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900  sticky bottom-0 ">
+      <nav
+        style={{
+          background: "",
+        }}
+        className=" bg-blue-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900  sticky bottom-0 "
+      >
         <div className="container flex flex-wrap justify-between items-center mx-auto  ">
           <div
             className="flex"
