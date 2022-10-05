@@ -33,12 +33,12 @@ function Homepage() {
 
   const getData = () => {
     axios.request(options).then(function (response) {
-      console.log(response.data.data.coins);
+      // console.log(response.data.data.coins);
       setData(response.data.data.coins);
       options.params.search = search;
       setData(response.data.data.coins);
-      console.log(options);
-      console.log(fav);
+      // console.log(options);
+      // console.log(fav);
     });
   };
 
@@ -86,7 +86,10 @@ function Homepage() {
               ${el["24hVolume"]}
             </div>
             <div className="w-20 font-bold text-sm ml-5">${el.marketCap}</div>
-            <img src="https://static.coinstats.app/sparks/bitcoin_1w.png" />
+            <img
+              src="https://static.coinstats.app/sparks/bitcoin_1w.png"
+              alt="icon"
+            />
             <button onClick={() => setFav((prev) => !prev)}>
               {!fav ? (
                 <svg

@@ -37,12 +37,12 @@ function Coinspage() {
 
   const getData = () => {
     axios.request(options).then(function (response) {
-      console.log(response.data.data.coins);
+      // console.log(response.data.data.coins);
       setData(response.data.data.coins);
       options.params.search = search;
       setData(response.data.data.coins);
-      console.log(options);
-      console.log(fav);
+      // console.log(options);
+      // console.log(fav);
     });
   };
 
