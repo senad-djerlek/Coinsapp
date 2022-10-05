@@ -44,6 +44,8 @@ function Homepage() {
 
   useEffect(() => getData(), [debounceTerm]);
 
+  console.log(data.length && Number(data[0].price).toFixed(2));
+
   return (
     <div>
       <div>
@@ -53,19 +55,29 @@ function Homepage() {
           alt="logo"
         />
       </div>
-      <div className="px-54 pr-10   flex justify-around px-25 items-center rounded-md  mt-2 mb-2 mr-10 h-[55px]  overflow-hidden">
-        <h2 className="">Coins</h2>
-        <h2>Name</h2>
-        <h2 className="">Price</h2>
-        <h2>24hVolume</h2>
-        <h2>marketCap</h2>
+
+      <div>
+        <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
+          <p>Rank</p>
+
+          <div width={50} className="ml-8"></div>
+          <div className="w-20 cursor-pointer">
+            <p>Name</p>
+          </div>
+          <div className="w-20">
+            <p className="">Price</p>
+          </div>
+          <div className="w-20 ml-16">24hVolume</div>
+          <div className="w-20 ml-6">marketCap</div>
+          <div className="w-36"></div>
+          <div className="w-15"></div>
+        </div>
       </div>
       <hr className="border-t-1 border-indigo-200 " />
       {data.slice(0, 15).map((el) => (
         <div key={el.uuid}>
-          <div className="    flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
+          <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
             <p>{el?.rank}</p>
-
             <img
               src={el.iconUrl}
               width={50}
@@ -80,7 +92,9 @@ function Homepage() {
               <p>{el.name}</p>
             </div>
             <div className="w-20">
-              <p className="font-bold text-sm">${el.price}</p>
+              <p className="font-bold text-sm">
+                ${Number(el.price).toFixed(4)}
+              </p>
             </div>
             <div className="w-20 font-bold text-sm ml-16">
               ${el["24hVolume"]}
