@@ -112,7 +112,7 @@ const Footer = () => {
                     // target="_blank"
                     rel="noreferrer"
                   >
-                    Uses
+                    Users
                   </a>
                 </li>
 
