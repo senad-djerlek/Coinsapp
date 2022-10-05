@@ -26,12 +26,13 @@ const NavBar = () => {
             }}
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              width={40}
+              src="https://i.postimg.cc/8P0LjnXR/logo-removebg-preview.png"
               className="mr-3 h-6 sm:h-9"
               alt="Coins Logo"
             />
-            <p className="self-center text-xl font-semibold whitespace-nowrap dark:text-white ">
-              Coins App
+            <p className="self-center text-xl font-mono font-semibold whitespace-nowrap dark:text-white ">
+              CRYPTO-NIT
             </p>
           </div>
           <ul className="flex flex-col justify-center p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 w-1/2 ">

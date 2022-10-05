@@ -56,17 +56,17 @@ function Coinspage() {
     <div className="w-full flex flex-col justify-center">
       {currentPosts.slice(0, 15).map((el) => (
         <div key={el.uuid}>
-          <div className="border-2 border-indigo-400  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+          <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
             <img src={el.iconUrl} width={50} alt={el.name} />
             <div className="w-20" onClick={() => navigate(`/${el.uuid}`)}>
               <p style={{ cursor: "pointer" }}>{el.name}</p>
             </div>
             <div className="w-20">
-              <p>{el.price}</p>
+              <p className="font-bold text-sm">${el.price}</p>
             </div>
-            <div className="w-20">{el["24hVolume"]}</div>
-            <div className="w-20">{el.marketCap}</div>
-            <div>Grafikon</div>
+            <div className="w-20 font-bold text-sm">${el["24hVolume"]}</div>
+            <div className="w-20 font-bold text-sm">${el.marketCap}</div>
+            <img src="https://static.coinstats.app/sparks/bitcoin_1w.png" />
             <button onClick={() => setFav((prev) => !prev)}>
               {!fav ? (
                 <svg
@@ -103,6 +103,7 @@ function Coinspage() {
               )}
             </button>
           </div>
+          <hr className="border-t-1 border-indigo-200" />
         </div>
       ))}
       <Pages
