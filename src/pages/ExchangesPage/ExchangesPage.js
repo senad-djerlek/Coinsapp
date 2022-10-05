@@ -38,11 +38,22 @@ export default function Exchanges() {
     <>
       {exchanges.map((exchange) => (
         <div key={exchange.uuid}>
-          <div className="border-2 border-indigo-400   flex justify-around items-center rounded-md ml-10 mt-2 mb-2 h-[80px]  overflow-hidden font-mono mr-10">
-            <img width={50} src={exchange.iconUrl} alt="icon"></img>
-            <div className="w-32">{exchange.name}</div>
-            <div className="w-20">{exchange.price}$</div>
-            <div className="w-20">Rank: {exchange.rank}</div>
+          <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
+            <p>{exchange.rank}</p>
+            <div className="w-32 cursor-pointer">
+              <img
+                width={50}
+                src={exchange.iconUrl}
+                alt={exchange.name}
+                className="cursor-pointer"
+              ></img>
+            </div>
+            <div className="w-32 cursor-pointer">
+              <p>{exchange.name}</p>
+            </div>
+            <div className="w-32">
+              <p className="font-bold text-sm">{exchange.price}$</p>
+            </div>
             <div className="w-36">
               <div className="flex h-12 w-34 bg-indigo-200 justify-center items-center rounded-lg transition ease-in-out duration-250 hover:bg-sky-700 hover:text-white ">
                 <a
@@ -55,6 +66,7 @@ export default function Exchanges() {
               </div>
             </div>
           </div>
+          <hr className="border-t-1 border-indigo-200" />
         </div>
       ))}
     </>

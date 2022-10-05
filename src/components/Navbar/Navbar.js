@@ -81,7 +81,7 @@ const NavBar = () => {
           <div className="Search">
             <form onSubmit={(e) => e.preventDefault()}>
               <label
-                for="default-search"
+                htmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
               >
                 Search

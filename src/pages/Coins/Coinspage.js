@@ -37,12 +37,12 @@ function Coinspage() {
 
   const getData = () => {
     axios.request(options).then(function (response) {
-      console.log(response.data.data.coins);
+      // console.log(response.data.data.coins);
       setData(response.data.data.coins);
       options.params.search = search;
       setData(response.data.data.coins);
-      console.log(options);
-      console.log(fav);
+      // console.log(options);
+      // console.log(fav);
     });
   };
 
@@ -58,7 +58,7 @@ function Coinspage() {
         <div key={el.uuid}>
           <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
             <img src={el.iconUrl} width={50} alt={el.name} />
-            <div className="w-20" onClick={() => navigate(`/${el.uuid}`)}>
+            <div className="w-20" onClick={() => navigate(`/coins/${el.uuid}`)}>
               <p style={{ cursor: "pointer" }}>{el.name}</p>
             </div>
             <div className="w-20">
