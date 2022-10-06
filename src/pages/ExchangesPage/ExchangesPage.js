@@ -4,7 +4,7 @@ import Pages from "../../components/Pagination/Pagination";
 export default function Exchanges() {
   const [exchanges, setExchanges] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(12);
+  const [postPerPage] = useState(12);
 
   const axios = require("axios");
 

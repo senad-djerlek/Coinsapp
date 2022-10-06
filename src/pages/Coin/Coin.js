@@ -46,7 +46,7 @@ function Coin() {
       </div>
       <hr className="border-t-2 border-indigo-200" />
       <div className="flex mt-2  items-center p-4 ml-2 justify-around ">
-        <img src={coin?.iconUrl} width={30} />
+        <img src={coin?.iconUrl} width={30} alt={coin?.name} />
         <p className="mr-13 font-bold">{coin?.name}</p>
         <p># {coin?.rank}</p>
         <p>{coin?.symbol}</p>
@@ -69,6 +69,7 @@ function Coin() {
         <img
           className="mt-22"
           src=" https://i.im.ge/2022/10/03/1VTQ2y.Screenshot-2022-10-03-at-15-54-47.png"
+          alt="something"
         />
       </div>
       <div className="flex">
