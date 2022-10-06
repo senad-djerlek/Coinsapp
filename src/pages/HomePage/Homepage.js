@@ -44,7 +44,7 @@ function Homepage() {
 
   useEffect(() => getData(), [debounceTerm]);
 
-  console.log(data.length && Number(data[0].price).toFixed(2));
+  // console.log(data.length && Number(data[0].price).toFixed(2));
 
   return (
     <div>
@@ -93,13 +93,16 @@ function Homepage() {
             </div>
             <div className="w-20">
               <p className="font-bold text-sm">
-                ${Number(el.price).toFixed(4)}
+                ${Number(el.price).toLocaleString()}
+                {/* {Number(el.price).toFixed(4)} */}
               </p>
             </div>
             <div className="w-20 font-bold text-sm ml-16">
-              ${el["24hVolume"]}
+              ${Number(el["24hVolume"]).toLocaleString()}
             </div>
-            <div className="w-20 font-bold text-sm ml-5">${el.marketCap}</div>
+            <div className="w-20 font-bold text-sm ml-5">
+              ${Number(el.marketCap).toLocaleString()}
+            </div>
             <img
               src="https://static.coinstats.app/sparks/bitcoin_1w.png"
               alt="icon"
