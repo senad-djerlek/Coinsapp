@@ -5,6 +5,7 @@ import Homepage from "./pages/HomePage/Homepage";
 import Footer from "./components/Footer/Footer";
 import Coinspage from "./pages/Coins/Coinspage";
 import Exchanges from "./pages/ExchangesPage/ExchangesPage";
+import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/coins" element={<Coinspage />} />
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/coins/:uuid" element={<Coin />} />
+        <Route path="/about" element={<AboutUsPage />} />
       </Routes>
       <Footer />
     </div>
