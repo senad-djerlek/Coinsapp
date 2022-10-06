@@ -45,16 +45,11 @@ export default function Exchanges() {
       {currentPosts.slice(0, 15).map((exchange) => (
         <div key={exchange.uuid}>
           <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
-            <div className="w-32 cursor-pointer">
-              <img
-                width={50}
-                src={exchange.iconUrl}
-                alt={exchange.name}
-                className="cursor-pointer"
-              ></img>
+            <div className="w-32">
+              <img width={50} src={exchange.iconUrl} alt={exchange.name}></img>
             </div>
             <p>{exchange.rank}#</p>
-            <div className="w-32 cursor-pointer">
+            <div className="w-32">
               <p>{exchange.name}</p>
             </div>
             <div className="w-32">

@@ -6,7 +6,8 @@ import { appContext } from "../../common/context";
 
 function Homepage() {
   const [data, setData] = useState([]);
-  const { search, fav, setFav } = useContext(appContext);
+  const { search, favouriteCoins, toggleFavoriteCoint } =
+    useContext(appContext);
   const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
@@ -20,7 +21,7 @@ function Homepage() {
       "tiers[0]": "1",
       orderBy: "marketCap",
       orderDirection: "desc",
-      limit: "50",
+      limit: "10",
       offset: "0",
       search: search,
       uuid: "razxDUgYGNAdQ",
@@ -61,7 +62,7 @@ function Homepage() {
           <p>Rank</p>
 
           <div width={50} className="ml-8"></div>
-          <div className="w-20 cursor-pointer">
+          <div className="w-20">
             <p>Name</p>
           </div>
           <div className="w-20">
@@ -76,7 +77,10 @@ function Homepage() {
       <hr className="border-t-1 border-indigo-200 " />
       {data.slice(0, 15).map((el) => (
         <div key={el.uuid}>
-          <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
+          <div
+            key={el.uuid}
+            className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden"
+          >
             <p>{el?.rank}</p>
             <img
               src={el.iconUrl}
@@ -107,8 +111,12 @@ function Homepage() {
               src="https://static.coinstats.app/sparks/bitcoin_1w.png"
               alt="icon"
             />
-            <button onClick={() => setFav((prev) => !prev)}>
-              {!fav ? (
+            <button
+              onClick={() => {
+                toggleFavoriteCoint(el);
+              }}
+            >
+              {!favouriteCoins[el.uuid] ? (
                 <svg
                   aria-hidden="true"
                   focusable="false"
