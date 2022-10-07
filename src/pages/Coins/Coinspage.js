@@ -8,7 +8,7 @@ import Pages from "../../components/Pagination/Pagination";
 function Coinspage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(12);
+  const [postPerPage] = useState(12);
 
   const { search, fav, setFav } = useContext(appContext);
   const navigate = useNavigate();
@@ -72,7 +72,10 @@ function Coinspage() {
             <div className="w-20 font-bold text-sm">
               ${Number(el.marketCap).toLocaleString()}
             </div>
-            <img src="https://static.coinstats.app/sparks/bitcoin_1w.png" />
+            <img
+              alt="something"
+              src="https://static.coinstats.app/sparks/bitcoin_1w.png"
+            />
             <button onClick={() => setFav((prev) => !prev)}>
               {!fav ? (
                 <svg
