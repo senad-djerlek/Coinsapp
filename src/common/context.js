@@ -4,13 +4,27 @@ const appContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   const [search, setSearch] = useState("");
-  const [fav, setFav] = useState(false);
+  const [favouriteCoins, setFavouriteCoins] = useState({});
+
+  const toggleFavoriteCoint = (coin) => {
+    if (favouriteCoins[coin.uuid]) {
+      setFavouriteCoins((_) => {
+        const { [coin.uuid]: rmObj, ...rest } = favouriteCoins;
+        return rest;
+      });
+      return;
+    }
+    setFavouriteCoins((prevState) => {
+      return { ...prevState, [coin.uuid]: coin };
+    });
+  };
 
   const values = {
     search,
     setSearch,
-    fav,
-    setFav,
+    favouriteCoins,
+    setFavouriteCoins,
+    toggleFavoriteCoint,
   };
 
   return <appContext.Provider value={values}>{children}</appContext.Provider>;

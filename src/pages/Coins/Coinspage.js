@@ -10,7 +10,8 @@ function Coinspage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(12);
 
-  const { search, fav, setFav } = useContext(appContext);
+  const { search, favouriteCoins, toggleFavoriteCoint } =
+    useContext(appContext);
   const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
@@ -76,8 +77,8 @@ function Coinspage() {
               alt="something"
               src="https://static.coinstats.app/sparks/bitcoin_1w.png"
             />
-            <button onClick={() => setFav((prev) => !prev)}>
-              {!fav ? (
+            <button onClick={() => toggleFavoriteCoint(el)}>
+              {!favouriteCoins[el.uuid] ? (
                 <svg
                   aria-hidden="true"
                   focusable="false"

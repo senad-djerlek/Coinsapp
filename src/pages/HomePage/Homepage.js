@@ -6,7 +6,8 @@ import { appContext } from "../../common/context";
 
 function Homepage() {
   const [data, setData] = useState([]);
-  const { search, fav, setFav } = useContext(appContext);
+  const { search, favouriteCoins, toggleFavoriteCoint } =
+    useContext(appContext);
   const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
@@ -20,7 +21,7 @@ function Homepage() {
       "tiers[0]": "1",
       orderBy: "marketCap",
       orderDirection: "desc",
-      limit: "50",
+      limit: "10",
       offset: "0",
       search: search,
       uuid: "razxDUgYGNAdQ",
@@ -47,21 +48,24 @@ function Homepage() {
   // console.log(data.length && Number(data[0].price).toFixed(2));
 
   return (
-    <div>
+    <div
+      className="max-w-screen flex flex-col items-center
+    "
+    >
       <div>
         <img
-          className="w-full h-96"
+          className="w-screen h-96"
           src="https://hedextrade.com/images/home-pages/btc_bg-4.jpg"
           alt="logo"
         />
       </div>
 
-      <div>
-        <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
+      <div className="w-10/12">
+        <div className=" flex justify-around items-center rounded-md mt-2 mb-2  h-[50px] overflow-hidden">
           <p>Rank</p>
 
           <div width={50} className="ml-8"></div>
-          <div className="w-20 cursor-pointer">
+          <div className="w-20">
             <p>Name</p>
           </div>
           <div className="w-20">
@@ -74,9 +78,12 @@ function Homepage() {
         </div>
       </div>
       <hr className="border-t-1 border-indigo-200 " />
-      {data.slice(0, 15).map((el) => (
-        <div key={el.uuid}>
-          <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
+      {data.map((el) => (
+        <div key={el.uuid} className="w-10/12">
+          <div
+            key={el.uuid}
+            className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden"
+          >
             <p>{el?.rank}</p>
             <img
               src={el.iconUrl}
@@ -107,8 +114,12 @@ function Homepage() {
               src="https://static.coinstats.app/sparks/bitcoin_1w.png"
               alt="icon"
             />
-            <button onClick={() => setFav((prev) => !prev)}>
-              {!fav ? (
+            <button
+              onClick={() => {
+                toggleFavoriteCoint(el);
+              }}
+            >
+              {!favouriteCoins[el.uuid] ? (
                 <svg
                   aria-hidden="true"
                   focusable="false"
