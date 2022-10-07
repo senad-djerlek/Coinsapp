@@ -8,9 +8,10 @@ import Pages from "../../components/Pagination/Pagination";
 function Coinspage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(12);
+  const [postPerPage] = useState(12);
 
-  const { search, fav, setFav } = useContext(appContext);
+  const { search, favouriteCoins, toggleFavoriteCoint } =
+    useContext(appContext);
   const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
@@ -58,18 +59,28 @@ function Coinspage() {
         <div key={el.uuid}>
           <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
             <p>{el.rank}</p>
+
             <img src={el.iconUrl} width={50} alt={el.name} />
             <div className="w-20" onClick={() => navigate(`/coins/${el.uuid}`)}>
               <p style={{ cursor: "pointer" }}>{el.name}</p>
             </div>
             <div className="w-20">
-              <p className="font-bold text-sm">${el.price}</p>
+              <p className="font-bold text-sm">
+                ${Number(el.price).toLocaleString()}
+              </p>
             </div>
-            <div className="w-20 font-bold text-sm">${el["24hVolume"]}</div>
-            <div className="w-20 font-bold text-sm">${el.marketCap}</div>
-            <img src="https://static.coinstats.app/sparks/bitcoin_1w.png" />
-            <button onClick={() => setFav((prev) => !prev)}>
-              {!fav ? (
+            <div className="w-20 font-bold text-sm">
+              ${Number(el["24hVolume"]).toLocaleString()}
+            </div>
+            <div className="w-20 font-bold text-sm">
+              ${Number(el.marketCap).toLocaleString()}
+            </div>
+            <img
+              alt="something"
+              src="https://static.coinstats.app/sparks/bitcoin_1w.png"
+            />
+            <button onClick={() => toggleFavoriteCoint(el)}>
+              {!favouriteCoins[el.uuid] ? (
                 <svg
                   aria-hidden="true"
                   focusable="false"

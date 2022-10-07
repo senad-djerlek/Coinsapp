@@ -58,6 +58,7 @@ function Coin() {
       <hr className="border-t-2 border-indigo-300" />
 
       <div className="flex items-center justify-around mt-10 ">
+
         <h3 className="font-bold mb-2 ">Price chart </h3>
         <p>
           24h <span className="text-green-500">{coin?.change} %</span>
@@ -68,13 +69,14 @@ function Coin() {
         </p>
       </div>
       <hr className="border-t-2 border-indigo-200 " />
-      <div className="mt-4/2 mb-12">
+      <div className="mt-4/2 mb-12 max-w-screen">
         <img
           className="mt-22"
           src=" https://i.im.ge/2022/10/03/1VTQ2y.Screenshot-2022-10-03-at-15-54-47.png"
+          alt="something"
         />
       </div>
-      <div className="flex">
+      <div className="flex max-w-screen">
         <div className="mt-2">
           <div className="ml-4  text-3xl text-center ">Value statistics</div>
           <div>
@@ -204,7 +206,7 @@ function Coin() {
           </div>
         </div>
       </div>
-      <div className="w-screen flex  ">
+      <div className="max-w-screen flex  ">
         <div className="w-5/12">
           <h1 className="mt-9 text-center font-bold">What is {coin?.name}</h1>
 

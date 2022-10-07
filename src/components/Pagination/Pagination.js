@@ -4,7 +4,7 @@ import { Stack } from "@mui/material";
 
 const Pages = ({ totalPosts, postsPerPage, setCurrentPage }) => {
   const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(9);
+  const [pages] = useState(9);
 
   function handleChange(event, value) {
     setPage(value);
