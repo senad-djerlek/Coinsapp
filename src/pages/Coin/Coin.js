@@ -40,18 +40,18 @@ function Coin() {
   }, []);
 
   return (
-    <div>
+    <div className="max-w-screen">
       <div className="mt-9" />
-      <div className="flex items-center">
+      <div className="flex items-center max-w-screen">
         <img
           src="https://i.postimg.cc/8P0LjnXR/logo-removebg-preview.png"
-          className="mr-3 h-6 sm:h-9"
+          className="mr-3 h-6 sm:h-9 "
           alt="Coins Logo"
         />
         <h1> CRYPTO-NIT</h1>
       </div>
       <hr className="border-t-2 border-indigo-200" />
-      <div className="flex mt-2  items-center p-4 ml-2 justify-around ">
+      <div className="flex mt-2  items-center p-4 ml-2 justify-around max-w-screen ">
         <img src={coin?.iconUrl} width={30} alt={coin?.name} />
         <p className="mr-13 font-bold">{coin?.name}</p>
         <p># {coin?.rank}</p>
@@ -63,7 +63,7 @@ function Coin() {
         </p>
       </div>
       <hr className="border-t-2 border-indigo-200" />
-      <div className="flex items-center justify-around mt-10  ">
+      <div className="flex items-center justify-around mt-10 max-w-screen ">
         <h3 className="font-bold mb-2 ">Price chart </h3>
         <p>
           24h <span className="text-green-500">{coin?.change} %</span>
@@ -71,14 +71,14 @@ function Coin() {
         <p>High $ {coin?.supply?.max} </p>
       </div>
       <hr className="border-t-2 border-indigo-200 " />
-      <div className="mt-4/2 mb-12">
+      <div className="mt-4/2 mb-12 max-w-screen">
         <img
           className="mt-22"
           src=" https://i.im.ge/2022/10/03/1VTQ2y.Screenshot-2022-10-03-at-15-54-47.png"
           alt="something"
         />
       </div>
-      <div className="flex">
+      <div className="flex max-w-screen">
         <div className="mt-2">
           <div className="ml-4  text-3xl text-center ">Value statistics</div>
           <div>
@@ -205,7 +205,7 @@ function Coin() {
           </div>
         </div>
       </div>
-      <div className="w-screen flex  ">
+      <div className="max-w-screen flex  ">
         <div className="w-5/12">
           <h1 className="mt-9 text-center font-bold">What is {coin?.name}</h1>
 
