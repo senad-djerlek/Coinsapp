@@ -40,35 +40,33 @@ function Coin() {
   }, []);
 
   return (
-    <div className="max-w-screen">
-      <div className="mt-9" />
-      <div className="flex items-center max-w-screen">
-        <img
-          src="https://i.postimg.cc/8P0LjnXR/logo-removebg-preview.png"
-          className="mr-3 h-6 sm:h-9 "
-          alt="Coins Logo"
-        />
-        <h1> CRYPTO-NIT</h1>
-      </div>
-      <hr className="border-t-2 border-indigo-200" />
-      <div className="flex mt-2  items-center p-4 ml-2 justify-around max-w-screen ">
-        <img src={coin?.iconUrl} width={30} alt={coin?.name} />
-        <p className="mr-13 font-bold">{coin?.name}</p>
-        <p># {coin?.rank}</p>
-        <p>{coin?.symbol}</p>
+    <div className="mt-3">
+      <div className="flex items-center justify-around w-2/5 mt-4 mb-5">
+        <div className="flex   items-center ">
+          <p className="flex justify-start">{coin?.rank}</p>
+          <img className=" ml-3" src={coin?.iconUrl} alt="icon" width={38} />
+          <p className="ml-3 font-bold">{coin?.name}</p>
 
-        <p className="font-bold">
-          $ {coin?.price}
-          <span className="ml-1 font-serif text-red-500">Live</span>
-        </p>
+          <p className="ml-3"> {coin?.symbol}</p>
+          <p className="ml-3 font-bold  ">
+            ${Number(coin?.price).toLocaleString()} Live
+          </p>
+        </div>
+
+        <div></div>
       </div>
-      <hr className="border-t-2 border-indigo-200" />
-      <div className="flex items-center justify-around mt-10 max-w-screen ">
+      <hr className="border-t-2 border-indigo-300" />
+
+      <div className="flex items-center justify-around mt-10 ">
+
         <h3 className="font-bold mb-2 ">Price chart </h3>
         <p>
           24h <span className="text-green-500">{coin?.change} %</span>
         </p>
-        <p>High $ {coin?.supply?.max} </p>
+        <p>
+          {" "}
+          High <span className="font-bold">${coin?.supply?.max}</span>{" "}
+        </p>
       </div>
       <hr className="border-t-2 border-indigo-200 " />
       <div className="mt-4/2 mb-12 max-w-screen">
@@ -145,8 +143,9 @@ function Coin() {
             </div>
             <hr />
             <h1 className="w-28 ">All-time high (daily avg.)</h1>
-            <h3 className="w-40 ">${coin?.supply.total}</h3>
+            <h3 className="w-40 mr-3">${coin?.supply.total}</h3>
           </div>
+          <hr className="border-t-2 border-indigo-300" />
         </div>
 
         <div className="ml-12">
@@ -163,11 +162,11 @@ function Coin() {
             }}
             className="w-94 mr- rounded h-2/3 ml-9 mt-20   "
           >
-            <div className="flex items-center ml-32 ">
+            <div className="flex items-center justify-center ">
               <svg
                 className="h-10 w-8 text-green-500 flex justify-around mt-7 ml-10"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 strokeWidth="2"
                 stroke="currentColor"
@@ -179,14 +178,14 @@ function Coin() {
                 <path stroke="none" d="M0 0h24v24H0z" />{" "}
                 <circle cx="12" cy="12" r="9" /> <path d="M9 12l2 2l4 -4" />
               </svg>
-              <h2 className="text-green-500 mt-9   ">Verified supplys</h2>
+              <h2 className="text-green-500 mt-9    ">Verified supplys</h2>
             </div>
             <div className="ml-3 mt-4  ">
               <p>Updated 2 minutes ago</p>
               <hr />
               <p className="mt-8 flex justify-between">
                 Total supply{" "}
-                <span className=" font-bold">
+                <span className="mr-5 font-bold">
                   {" "}
                   $ {coin?.supply.circulating}
                 </span>
@@ -194,12 +193,14 @@ function Coin() {
               <hr />
               <p className="mt-11 flex justify-between">
                 Max supply{" "}
-                <span className=" font-bold">$ {coin?.supply.max}</span>{" "}
+                <span className=" mr-3 font-bold">$ {coin?.supply.max}</span>{" "}
               </p>
               <hr />
               <p className="mt-11 flex justify-between">
                 Total supply
-                <span className="  font-bold">$ {coin?.supply.total}</span>{" "}
+                <span className=" mr-4 font-bold">
+                  $ {coin?.supply.total}
+                </span>{" "}
               </p>
             </div>
           </div>
@@ -213,7 +214,7 @@ function Coin() {
             // style={{
             //   color: `${coin?.color}`,
             // }}
-            className="px-3 pt-3 border border-indigo-600 rounded text-sm ml-3"
+            className="px-3 pt-3 border border-indigo-600 rounded text-sm ml-3 mb-6"
             dangerouslySetInnerHTML={{ __html: coin?.description }}
           />
         </div>

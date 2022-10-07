@@ -57,7 +57,9 @@ function Coinspage() {
     <div className="w-full flex flex-col justify-center">
       {currentPosts.slice(0, 15).map((el) => (
         <div key={el.uuid}>
-          <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[50px]  overflow-hidden">
+          <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+            <p>{el.rank}</p>
+
             <img src={el.iconUrl} width={50} alt={el.name} />
             <div className="w-20" onClick={() => navigate(`/coins/${el.uuid}`)}>
               <p style={{ cursor: "pointer" }}>{el.name}</p>
