@@ -48,7 +48,7 @@ export default function Exchanges() {
             <div className="w-32">
               <img width={50} src={exchange.iconUrl} alt={exchange.name}></img>
             </div>
-            <p>{exchange.rank}#</p>
+            <p>#{exchange.rank}</p>
             <div className="w-32">
               <p>{exchange.name}</p>
             </div>
