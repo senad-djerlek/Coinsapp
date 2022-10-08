@@ -71,7 +71,7 @@ function Homepage() {
           <div className="w-20">
             <p className="">Price</p>
           </div>
-          <div className="w-20 ml-16">24hVolume</div>
+          <div className="w-20 ml-6">24hVolume</div>
           <div className="w-20 ml-6">marketCap</div>
           <div className="w-36"></div>
           <div className="w-15"></div>
@@ -84,7 +84,7 @@ function Homepage() {
             key={el.uuid}
             className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden"
           >
-            <p>{el?.rank}</p>
+            <p className="w-5">{el?.rank}</p>
             <img
               src={el.iconUrl}
               width={50}
@@ -104,7 +104,7 @@ function Homepage() {
                 {/* {Number(el.price).toFixed(4)} */}
               </p>
             </div>
-            <div className="w-20 font-bold text-sm ml-16">
+            <div className="w-20 font-bold text-sm ml-5">
               ${Number(el["24hVolume"]).toLocaleString()}
             </div>
             <div className="w-20 font-bold text-sm ml-5">
