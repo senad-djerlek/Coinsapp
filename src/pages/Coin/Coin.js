@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import CurrencyBitcoinOutlinedIcon from "@mui/icons-material/CurrencyBitcoinOutlined";
@@ -13,6 +14,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import RedditIcon from "@mui/icons-material/Reddit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EventNoteIcon from "@mui/icons-material/EventNote";
+import SearchIcon from "@mui/icons-material/Search";
 function Coin() {
   const [coin, setCoin] = useState();
   const { uuid } = useParams();
@@ -49,11 +51,21 @@ function Coin() {
 
           <p className="ml-3"> {coin?.symbol}</p>
           <p className="ml-3 font-bold  ">
-            ${Number(coin?.price).toLocaleString()} Live
+            ${Number(coin?.price).toLocaleString()}
           </p>
         </div>
 
-        <div></div>
+        <div className="text-blue-500">
+          <div className=" absolute right-16 ">
+            <NavLink to={"/"} className="m-4">
+              Home
+            </NavLink>
+            <NavLink className="m-4" to={"/exchanges"}>
+              Exchanges
+            </NavLink>
+            <SearchIcon />
+          </div>
+        </div>
       </div>
       <hr className="border-t-2 border-indigo-300" />
 
