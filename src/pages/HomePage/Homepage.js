@@ -71,7 +71,7 @@ function Homepage() {
           <div className="w-20">
             <p className="">Price</p>
           </div>
-          <div className="w-20 ml-6">24hVolume</div>
+          <div className="w-20 ">24hVolume</div>
           <div className="w-20 ml-6">marketCap</div>
           <div className="w-36"></div>
           <div className="w-15"></div>
@@ -104,7 +104,7 @@ function Homepage() {
                 {/* {Number(el.price).toFixed(4)} */}
               </p>
             </div>
-            <div className="w-20 font-bold text-sm ml-5">
+            <div className="w-20 font-bold text-sm ">
               ${Number(el["24hVolume"]).toLocaleString()}
             </div>
             <div className="w-20 font-bold text-sm ml-5">
