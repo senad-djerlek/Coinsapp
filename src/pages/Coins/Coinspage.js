@@ -50,6 +50,21 @@ function Coinspage() {
 
   return (
     <div className="w-full flex flex-col justify-center">
+      <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
+        <p>Rank</p>
+
+        <div width={50} className="ml-8"></div>
+        <div className="w-20 cursor-pointer">
+          <p>Name</p>
+        </div>
+        <div className="w-20">
+          <p className="">Price</p>
+        </div>
+        <div className="w-20">24hVolume</div>
+        <div className="w-20">marketCap</div>
+        <div className="w-36"></div>
+        <div className="w-15"></div>
+      </div>
       {currentPosts.slice(0, 15).map((el) => (
         <CardCoin
           uuid={el.uuid}
