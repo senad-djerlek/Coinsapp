@@ -1,17 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import useDebounce from "../../Hooks/useDebounce";
-import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
 import Pages from "../../components/Pagination/Pagination";
+import CardCoin from "../../components/CardCoin/CardCoin";
 
 function Coinspage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(12);
+  const [postPerPage] = useState(12);
 
-  const { search, fav, setFav } = useContext(appContext);
-  const navigate = useNavigate();
+  const { search, toggleFavoriteCoint } = useContext(appContext);
 
   const debounceTerm = useDebounce(search, 200);
 
@@ -37,12 +36,9 @@ function Coinspage() {
 
   const getData = () => {
     axios.request(options).then(function (response) {
-      // console.log(response.data.data.coins);
       setData(response.data.data.coins);
       options.params.search = search;
       setData(response.data.data.coins);
-      // console.log(options);
-      // console.log(fav);
     });
   };
 
@@ -120,8 +116,25 @@ function Coinspage() {
             </button>
           </div>
           <hr className="border-t-1 border-indigo-200" />
+
         </div>
-      ))}
+      ) : (
+        currentPosts
+          .slice(0, 15)
+          .map((el) => (
+            <CardCoin
+              uuid={el.uuid}
+              rank={el.rank}
+              iconUrl={el.iconUrl}
+              name={el.name}
+              price={el.price}
+              hVolume={el["24hVolume"]}
+              marketCap={el.marketCap}
+              onClick={() => toggleFavoriteCoint(el)}
+            />
+          ))
+      )}
+
       <Pages
         totalPosts={data.length}
         postPerPage={postPerPage}

@@ -6,7 +6,8 @@ import { appContext } from "../../common/context";
 
 function Homepage() {
   const [data, setData] = useState([]);
-  const { search, fav, setFav } = useContext(appContext);
+  const { search, favouriteCoins, toggleFavoriteCoint } =
+    useContext(appContext);
   const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
@@ -20,7 +21,7 @@ function Homepage() {
       "tiers[0]": "1",
       orderBy: "marketCap",
       orderDirection: "desc",
-      limit: "50",
+      limit: "10",
       offset: "0",
       search: search,
       uuid: "razxDUgYGNAdQ",
@@ -44,40 +45,46 @@ function Homepage() {
 
   useEffect(() => getData(), [debounceTerm]);
 
-  console.log(data.length && Number(data[0].price).toFixed(2));
+  // console.log(data.length && Number(data[0].price).toFixed(2));
 
   return (
-    <div>
+    <div
+      className="max-w-screen flex flex-col items-center
+    "
+    >
       <div>
         <img
-          className="w-full h-96"
+          className="w-screen h-96"
           src="https://hedextrade.com/images/home-pages/btc_bg-4.jpg"
           alt="logo"
         />
       </div>
 
-      <div>
-        <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
+      <div className="w-10/12">
+        <div className=" flex justify-around items-center rounded-md mt-2 mb-2  h-[50px] overflow-hidden">
           <p>Rank</p>
 
           <div width={50} className="ml-8"></div>
-          <div className="w-20 cursor-pointer">
+          <div className="w-20">
             <p>Name</p>
           </div>
           <div className="w-20">
             <p className="">Price</p>
           </div>
-          <div className="w-20 ml-16">24hVolume</div>
+          <div className="w-20 ml-6">24hVolume</div>
           <div className="w-20 ml-6">marketCap</div>
           <div className="w-36"></div>
           <div className="w-15"></div>
         </div>
       </div>
       <hr className="border-t-1 border-indigo-200 " />
-      {data.slice(0, 15).map((el) => (
-        <div key={el.uuid}>
-          <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
-            <p>{el?.rank}</p>
+      {data.map((el) => (
+        <div key={el.uuid} className="w-10/12">
+          <div
+            key={el.uuid}
+            className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden"
+          >
+            <p className="w-5">{el?.rank}</p>
             <img
               src={el.iconUrl}
               width={50}
@@ -93,19 +100,26 @@ function Homepage() {
             </div>
             <div className="w-20">
               <p className="font-bold text-sm">
-                ${Number(el.price).toFixed(4)}
+                ${Number(el.price).toLocaleString()}
+                {/* {Number(el.price).toFixed(4)} */}
               </p>
             </div>
-            <div className="w-20 font-bold text-sm ml-16">
-              ${el["24hVolume"]}
+            <div className="w-20 font-bold text-sm ml-5">
+              ${Number(el["24hVolume"]).toLocaleString()}
             </div>
-            <div className="w-20 font-bold text-sm ml-5">${el.marketCap}</div>
+            <div className="w-20 font-bold text-sm ml-5">
+              ${Number(el.marketCap).toLocaleString()}
+            </div>
             <img
               src="https://static.coinstats.app/sparks/bitcoin_1w.png"
               alt="icon"
             />
-            <button onClick={() => setFav((prev) => !prev)}>
-              {!fav ? (
+            <button
+              onClick={() => {
+                toggleFavoriteCoint(el);
+              }}
+            >
+              {!favouriteCoins[el.uuid] ? (
                 <svg
                   aria-hidden="true"
                   focusable="false"
