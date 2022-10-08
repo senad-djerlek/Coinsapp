@@ -49,12 +49,12 @@ function Coinspage() {
   const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div className="w-full flex flex-col justify-center">
+    <div className="w-full flex flex-col justify-center min-h-[47.8vh]">
       <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
         <p>Rank</p>
 
         <div width={50} className="ml-8"></div>
-        <div className="w-20 cursor-pointer">
+        <div className="w-20">
           <p>Name</p>
         </div>
         <div className="w-20">
@@ -65,18 +65,26 @@ function Coinspage() {
         <div className="w-36"></div>
         <div className="w-15"></div>
       </div>
-      {currentPosts.slice(0, 15).map((el) => (
-        <CardCoin
-          uuid={el.uuid}
-          rank={el.rank}
-          iconUrl={el.iconUrl}
-          name={el.name}
-          price={el.price}
-          hVolume={el["24hVolume"]}
-          marketCap={el.marketCap}
-          onClick={() => toggleFavoriteCoint(el)}
-        />
-      ))}
+      {currentPosts.length === 0 ? (
+        <div className="flex items-center justify-center">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        currentPosts
+          .slice(0, 15)
+          .map((el) => (
+            <CardCoin
+              uuid={el.uuid}
+              rank={el.rank}
+              iconUrl={el.iconUrl}
+              name={el.name}
+              price={el.price}
+              hVolume={el["24hVolume"]}
+              marketCap={el.marketCap}
+              onClick={() => toggleFavoriteCoint(el)}
+            />
+          ))
+      )}
       <Pages
         totalPosts={data.length}
         postPerPage={postPerPage}
