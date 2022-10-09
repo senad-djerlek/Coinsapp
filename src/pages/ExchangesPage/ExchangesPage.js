@@ -41,42 +41,55 @@ export default function Exchanges() {
   const currentPosts = exchanges.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <>
-      {currentPosts.slice(0, 15).map((exchange) => (
-        <div key={exchange.uuid}>
-          <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
-            <div className="w-32">
-              <img width={50} src={exchange.iconUrl} alt={exchange.name}></img>
-            </div>
-            <p>#{exchange.rank}</p>
-            <div className="w-32">
-              <p>{exchange.name}</p>
-            </div>
-            <div className="w-32">
-              <p className="font-bold text-sm">
-                $ {Number(exchange.price).toLocaleString()}
-              </p>
-            </div>
-            <div className="w-36">
-              <div className="flex h-12 w-34 bg-indigo-100 justify-center items-center rounded-2xl rounded-br-none transition ease-in-out duration-250 hover:bg-indigo-700 hover:text-white hover:drop-shadow-2xl hover:rounded-br-2xl ">
-                <a
-                  href={exchange.coinrankingUrl}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Open Exchange
-                </a>
-              </div>
-            </div>
-          </div>
-          <hr className="border-t-1 border-indigo-200" />
+    <div className="w-full flex flex-col justify-center min-h-[47.8vh]">
+      {currentPosts.length === 0 ? (
+        <div className="flex justify-center items-center">
+          <h1>Loading...</h1>
         </div>
-      ))}
+      ) : (
+        <div>
+          {currentPosts.slice(0, 15).map((exchange) => (
+            <div key={exchange.uuid}>
+              <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
+                <div className="w-32">
+                  <img
+                    width={50}
+                    src={exchange.iconUrl}
+                    alt={exchange.name}
+                  ></img>
+                </div>
+                <p>#{exchange.rank}</p>
+                <div className="w-32">
+                  <p>{exchange.name}</p>
+                </div>
+                <div className="w-32">
+                  <p className="font-bold text-sm">
+                    $ {Number(exchange.price).toLocaleString()}
+                  </p>
+                </div>
+                <div className="w-36">
+                  <div className="flex h-12 w-34 bg-indigo-100 justify-center items-center rounded-2xl rounded-br-none transition ease-in-out duration-250 hover:bg-indigo-700 hover:text-white hover:drop-shadow-2xl hover:rounded-br-2xl ">
+                    <a
+                      href={exchange.coinrankingUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Open Exchange
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <hr className="border-t-1 border-indigo-200" />
+            </div>
+          ))}
+        </div>
+      )}
+
       <Pages
         totalPosts={exchanges.length}
         postPerPage={postPerPage}
         setCurrentPage={setCurrentPage}
       />
-    </>
+    </div>
   );
 }
