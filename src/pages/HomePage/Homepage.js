@@ -3,6 +3,7 @@ import axios from "axios";
 import useDebounce from "../../Hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
+import { Sparklines, SparklinesLine } from "react-sparklines";
 
 function Homepage() {
   const [data, setData] = useState([]);
@@ -38,12 +39,17 @@ function Homepage() {
       setData(response.data.data.coins);
       options.params.search = search;
       setData(response.data.data.coins);
+      console.log(data);
       // console.log(options);
       // console.log(fav);
     });
   };
 
-  useEffect(() => getData(), [debounceTerm]);
+  useEffect(
+    () => getData(),
+
+    [debounceTerm]
+  );
 
   // console.log(data.length && Number(data[0].price).toFixed(2));
 
@@ -71,7 +77,7 @@ function Homepage() {
           <div className="w-20">
             <p className="">Price</p>
           </div>
-          <div className="w-20 ml-6">24hVolume</div>
+          <div className="w-20 ">24hVolume</div>
           <div className="w-20 ml-6">marketCap</div>
           <div className="w-36"></div>
           <div className="w-15"></div>
@@ -104,16 +110,17 @@ function Homepage() {
                 {/* {Number(el.price).toFixed(4)} */}
               </p>
             </div>
-            <div className="w-20 font-bold text-sm ml-5">
+            <div className="w-20 font-bold text-sm ">
               ${Number(el["24hVolume"]).toLocaleString()}
             </div>
             <div className="w-20 font-bold text-sm ml-5">
               ${Number(el.marketCap).toLocaleString()}
             </div>
-            <img
-              src="https://static.coinstats.app/sparks/bitcoin_1w.png"
-              alt="icon"
-            />
+            <div className="w-32">
+              <Sparklines data={el.sparkline.map((el) => el)}>
+                <SparklinesLine color="blue" />
+              </Sparklines>
+            </div>
             <button
               onClick={() => {
                 toggleFavoriteCoint(el);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
 import CurrencyBitcoinOutlinedIcon from "@mui/icons-material/CurrencyBitcoinOutlined";
@@ -13,6 +14,9 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import RedditIcon from "@mui/icons-material/Reddit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EventNoteIcon from "@mui/icons-material/EventNote";
+
+import SearchIcon from "@mui/icons-material/Search";
+import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines";
 
 function Coin() {
   const [coin, setCoin] = useState();
@@ -50,11 +54,21 @@ function Coin() {
 
           <p className="ml-3"> {coin?.symbol}</p>
           <p className="ml-3 font-bold  ">
-            ${Number(coin?.price).toLocaleString()} Live
+            ${Number(coin?.price).toLocaleString()}
           </p>
         </div>
 
-        <div></div>
+        <div className="text-blue-500">
+          <div className=" absolute right-16 ">
+            <NavLink to={"/"} className="m-4">
+              Home
+            </NavLink>
+            <NavLink className="m-4" to={"/exchanges"}>
+              Exchanges
+            </NavLink>
+            <SearchIcon />
+          </div>
+        </div>
       </div>
       <hr className="border-t-2 border-indigo-300" />
 
@@ -69,12 +83,10 @@ function Coin() {
         </p>
       </div>
       <hr className="border-t-2 border-indigo-200 " />
-      <div className="mt-4/2 mb-12 max-w-screen">
-        <img
-          className="mt-22"
-          src=" https://i.im.ge/2022/10/03/1VTQ2y.Screenshot-2022-10-03-at-15-54-47.png"
-          alt="something"
-        />
+      <div className="mt-10 mb-12 max-w-screen">
+        <Sparklines data={coin?.sparkline.map((el) => el)}>
+          <SparklinesLine color="blue" />
+        </Sparklines>
       </div>
       <div className="flex max-w-screen">
         <div className="mt-2">
@@ -219,38 +231,47 @@ function Coin() {
             // style={{
             //   color: `${coin?.color}`,
             // }}
-            className="px-3 pt-3 border border-indigo-600 rounded text-sm ml-3 mb-6"
+            className="px-3 pt-3 border border-indigo-600 rounded text-sm ml-3 mb-10 font-serif m"
             dangerouslySetInnerHTML={{ __html: coin?.description }}
           />
         </div>
         <div className="w-1/2 ml-10 mt-14">
           <h1 className="ml-3 font-bold">Links</h1>
           <div className="">
-            <div className="flex  justify-between w-41   ">
+            <div className="flex  justify-between w-41">
               <div className="flex items-center w-32 justify-evenly font-bold">
-                <LinkIcon fontSize="large" color="primary" />
+                <div className="w-10">
+                  <LinkIcon fontSize="large" color="primary" />
+                </div>
                 <p className="">{link?.slice(0, 1)}</p>
               </div>
               <p className="">{name?.slice(0, 1)}</p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
-            <div className="flex justify-between items-center mt-4 ">
+            <div className="flex justify-between items-center mt-4 w-41 ">
               <div className="flex items-center  w-32 justify-evenly font-bold">
-                <LinkIcon fontSize="large" color="primary" />
+                <div className="w-10 ">
+                  <LinkIcon fontSize="large" color="primary" />
+                </div>
                 <p>{link?.slice(1, 2)}</p>
               </div>
               <p>{name?.slice(1, 2)}</p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
-            <div className="flex justify-between items-center mt-4  ">
+            <div className="flex justify-between items-center mt-4 w-41 ">
               <div className="flex items-center  w-32 justify-evenly font-bold">
-                <CurrencyBitcoinOutlinedIcon fontSize="large" color="primary" />
+                <div className="w-10 ml-2">
+                  <CurrencyBitcoinOutlinedIcon
+                    fontSize="large"
+                    color="primary"
+                  />
+                </div>
                 <p>{link?.slice(2, 3)}</p>
               </div>
               <p>{name?.slice(2, 3)}</p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
-            <div className="flex justify-between items-center mt-4 ">
+            <div className="flex justify-between items-center mt-4 w-41 ">
               <div className="flex items-center  w-32 justify-evenly font-bold">
                 <CurrencyExchangeIcon fontSize="large" color="primary" />
                 <p>{link?.slice(3, 4)}</p>
@@ -258,34 +279,42 @@ function Coin() {
               <p>{name?.slice(3, 4)}</p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
-            <div className="flex justify-between items-center mt-4 ">
-              <div className="flex items-center  w-32 justify-evenly font-bold">
-                <GitHubIcon fontSize="large" color="primary" />
+            <div className="flex justify-between items-center mt-4 w-41 ">
+              <div className="flex items-center  w-32 justify-evenly font-bold ">
+                <div className="w-10 -ml-2">
+                  <GitHubIcon fontSize="large" color="primary" />
+                </div>
                 <p>{link?.slice(4, 5)}</p>
               </div>
               <p>{name?.slice(4, 5)}</p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
 
-            <div className="flex justify-between items-center mt-4 ">
+            <div className="flex justify-between items-center mt-4 w-41 ">
               <div className="flex items-center  w-32 justify-evenly font-bold">
-                <RedditIcon fontSize="large" color="primary" />
+                <div className="w-10 -ml-2">
+                  <RedditIcon fontSize="large" color="primary" />
+                </div>{" "}
                 <p>{link?.slice(5, 6)}</p>
               </div>
               <p>{name?.slice(5, 6)}</p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
-            <div className="flex justify-between items-center mt-4 ">
+            <div className="flex justify-between items-center mt-4 w-41 ">
               <div className="flex items-center  w-32 justify-evenly font-bold">
-                <TelegramIcon fontSize="large" color="primary" />
+                <div className="w-10 -ml-2">
+                  <TelegramIcon fontSize="large" color="primary" />
+                </div>{" "}
                 <p>{link?.slice(6, 7)}</p>
               </div>
               <p>{name?.slice(6, 7)}</p>
             </div>
             <hr className="border-t-2 border-indigo-200" />
-            <div className="flex justify-between items-center mt-4 ">
+            <div className="flex justify-between items-center mt-4 w-41 ">
               <div className="flex items-center  w-32 justify-evenly font-bold">
-                <EventNoteIcon fontSize="large" color="primary" />
+                <div className="w-10">
+                  <EventNoteIcon fontSize="large" color="primary" />
+                </div>
                 <p>{link?.slice(8, 9)}</p>
               </div>
               <p>{name?.slice(8, 9)}</p>
