@@ -80,6 +80,7 @@ function Coinspage() {
               price={el.price}
               hVolume={el["24hVolume"]}
               marketCap={el.marketCap}
+              sparkline={el.sparkline.map((el) => el)}
               onClick={() => toggleFavoriteCoint(el)}
             />
           ))}
