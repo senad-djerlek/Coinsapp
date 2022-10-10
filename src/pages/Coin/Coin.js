@@ -13,6 +13,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import RedditIcon from "@mui/icons-material/Reddit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EventNoteIcon from "@mui/icons-material/EventNote";
+
 function Coin() {
   const [coin, setCoin] = useState();
   const { uuid } = useParams();
@@ -58,10 +59,9 @@ function Coin() {
       <hr className="border-t-2 border-indigo-300" />
 
       <div className="flex items-center justify-around mt-10 ">
-
         <h3 className="font-bold mb-2 ">Price chart </h3>
         <p>
-          24h <span className="text-green-500">{coin?.change} %</span>
+          24h <span className="text-green-500"> {coin?.change} %</span>
         </p>
         <p>
           {" "}
@@ -91,7 +91,7 @@ function Coin() {
               <PaidOutlinedIcon fontSize="large" color="primary" />
             </div>
             <h1 className="w-28">Price to EUR</h1>
-            <h3 className="font-bold w-40">{coin?.price}</h3>
+            <h3 className="font-bold w-40"> {coin?.price}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around mt-9">
@@ -100,7 +100,7 @@ function Coin() {
             </div>
             <h1 className="w-28">Price to BTC</h1>
             <h3 className="font-bold w-40">
-              {coin?.priceAt} {coin?.symbol}
+              $ {coin?.priceAt} {coin?.symbol}
             </h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
@@ -110,7 +110,7 @@ function Coin() {
               <BarChartOutlinedIcon fontSize="large" color="primary" />
             </div>
             <h1 className="w-28">Rank</h1>
-            <h3 className="font-bold w-40"> {coin?.rank}</h3>
+            <h3 className="font-bold w-40"> # {coin?.rank}</h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around w-3/2 mt-9">
@@ -118,7 +118,10 @@ function Coin() {
               <EggOutlinedIcon fontSize="large" color="primary" />
             </div>
             <h1 className="w-28">24h volume</h1>
-            <h3 className="font-bold w-40"> {coin?.price}</h3>
+            <h3 className="font-bold w-40">
+              {" "}
+              ${Number(coin?.price).toLocaleString()}
+            </h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
           <div className="flex items-center justify-around mt-9 ">
@@ -143,7 +146,9 @@ function Coin() {
             </div>
             <hr />
             <h1 className="w-28 ">All-time high (daily avg.)</h1>
-            <h3 className="w-40 mr-3">${coin?.supply.total}</h3>
+            <h3 className="w-40 mr-3">
+              ${Number(coin?.supply.total).toLocaleString()}
+            </h3>
           </div>
           <hr className="border-t-2 border-indigo-300" />
         </div>
