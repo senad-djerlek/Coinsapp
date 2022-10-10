@@ -15,6 +15,8 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import SearchIcon from "@mui/icons-material/Search";
+import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines";
+
 function Coin() {
   const [coin, setCoin] = useState();
   const { uuid } = useParams();
@@ -80,12 +82,10 @@ function Coin() {
         </p>
       </div>
       <hr className="border-t-2 border-indigo-200 " />
-      <div className="mt-4/2 mb-12 max-w-screen">
-        <img
-          className="mt-22"
-          src=" https://i.im.ge/2022/10/03/1VTQ2y.Screenshot-2022-10-03-at-15-54-47.png"
-          alt="something"
-        />
+      <div className="mt-10 mb-12 max-w-screen">
+        <Sparklines data={coin?.sparkline.map((el) => el)}>
+          <SparklinesLine color="blue" />
+        </Sparklines>
       </div>
       <div className="flex max-w-screen">
         <div className="mt-2">

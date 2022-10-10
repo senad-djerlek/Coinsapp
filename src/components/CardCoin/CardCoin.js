@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
+import { Sparklines, SparklinesLine } from "react-sparklines";
 
 function CardCoin({
   uuid,
@@ -11,6 +12,7 @@ function CardCoin({
   hVolume,
   marketCap,
   onClick,
+  sparkline,
 }) {
   const { favouriteCoins } = useContext(appContext);
   const navigate = useNavigate();
@@ -35,10 +37,11 @@ function CardCoin({
           <div className="w-20 font-bold text-sm">
             ${Number(marketCap).toLocaleString()}
           </div>
-          <img
-            alt="something"
-            src="https://static.coinstats.app/sparks/bitcoin_1w.png"
-          />
+          <div className="w-32">
+            <Sparklines data={sparkline}>
+              <SparklinesLine color="blue" />
+            </Sparklines>
+          </div>
           <button onClick={onClick}>
             {!favouriteCoins[uuid] ? (
               <svg
