@@ -40,17 +40,17 @@ const NavBar = () => {
             <li>
               <NavLink
                 to={"/"}
+                end
                 className={({ isActive }) =>
                   isActive ? activeClassName : dissclass
                 }
-                aria-current="page"
               >
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink
-                to={"/coins"}
+                to="/coins"
                 className={({ isActive }) =>
                   isActive ? activeClassName : dissclass
                 }

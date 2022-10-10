@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import useDebounce from "../../Hooks/useDebounce";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
@@ -59,6 +59,7 @@ function Homepage() {
     "
     >
       <div>
+        x
         <img
           className="w-screen h-96"
           src="https://hedextrade.com/images/home-pages/btc_bg-4.jpg"
