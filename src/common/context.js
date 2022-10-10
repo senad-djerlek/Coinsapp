@@ -1,11 +1,11 @@
 import React, { createContext, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const appContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [favouriteCoins, setFavouriteCoins] = useState({});
-
   const toggleFavoriteCoint = (coin) => {
     if (favouriteCoins[coin.uuid]) {
       setFavouriteCoins((_) => {
@@ -17,6 +17,7 @@ const AppContextProvider = ({ children }) => {
     setFavouriteCoins((prevState) => {
       return { ...prevState, [coin.uuid]: coin };
     });
+    toast.success("Uspesno ste dodali artikal u korpu!");
   };
 
   const values = {
