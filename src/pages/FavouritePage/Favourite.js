@@ -5,7 +5,7 @@ import { appContext } from "../../common/context";
 function Favourite() {
   const { favouriteCoins, toggleFavoriteCoint } = useContext(appContext);
   const navigate = useNavigate();
-  console.log(favouriteCoins);
+
   return (
     <div className="flex flex-col min-h-[47.8vh]">
       {Object.keys(favouriteCoins).length === 0 ? (
@@ -23,7 +23,7 @@ function Favourite() {
       ) : (
         Object.keys(favouriteCoins).map((key) => (
           <div key={favouriteCoins[key].uuid} className="flex flex-col">
-            <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[50px]  overflow-hidden">
+            <div className="w-94 h-[50px] ml-10 mr-10 mt-2 mb-2 flex justify-around items-center rounded-md">
               <img
                 src={favouriteCoins[key].iconUrl}
                 width={50}
@@ -71,7 +71,6 @@ function Favourite() {
           </div>
         ))
       )}
-      {}
     </div>
   );
 }

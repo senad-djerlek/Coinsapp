@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import useDebounce from "../../Hooks/useDebounce";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 
@@ -9,6 +9,7 @@ function Homepage() {
   const [data, setData] = useState([]);
   const { search, favouriteCoins, toggleFavoriteCoint } =
     useContext(appContext);
+
   const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
@@ -35,31 +36,17 @@ function Homepage() {
 
   const getData = () => {
     axios.request(options).then(function (response) {
-      // console.log(response.data.data.coins);
       setData(response.data.data.coins);
       options.params.search = search;
       setData(response.data.data.coins);
-      console.log(data);
-      // console.log(options);
-      // console.log(fav);
     });
   };
 
-  useEffect(
-    () => getData(),
-
-    [debounceTerm]
-  );
-
-  // console.log(data.length && Number(data[0].price).toFixed(2));
+  useEffect(() => getData(), [debounceTerm]);
 
   return (
-    <div
-      className="max-w-screen flex flex-col items-center
-    "
-    >
+    <div className="max-w-screen flex flex-col items-center">
       <div>
-        x
         <img
           className="w-screen h-96"
           src="https://hedextrade.com/images/home-pages/btc_bg-4.jpg"
@@ -68,15 +55,14 @@ function Homepage() {
       </div>
 
       <div className="w-10/12">
-        <div className=" flex justify-around items-center rounded-md mt-2 mb-2  h-[50px] overflow-hidden">
+        <div className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden">
           <p>Rank</p>
-
           <div width={50} className="ml-8"></div>
           <div className="w-20">
             <p>Name</p>
           </div>
           <div className="w-20">
-            <p className="">Price</p>
+            <p>Price</p>
           </div>
           <div className="w-20 ">24hVolume</div>
           <div className="w-20 ml-6">marketCap</div>
@@ -108,10 +94,9 @@ function Homepage() {
             <div className="w-20">
               <p className="font-bold text-sm">
                 ${Number(el.price).toLocaleString()}
-                {/* {Number(el.price).toFixed(4)} */}
               </p>
             </div>
-            <div className="w-20 font-bold text-sm ">
+            <div className="w-20 font-bold text-sm">
               ${Number(el["24hVolume"]).toLocaleString()}
             </div>
             <div className="w-20 font-bold text-sm ml-5">

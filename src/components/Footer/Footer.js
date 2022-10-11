@@ -98,7 +98,6 @@ const Footer = () => {
                   <a
                     className="text-gray-900 transition hover:text-gray-900/75"
                     href="/"
-                    // target="_blank"
                     rel="noreferrer"
                   >
                     Website
@@ -109,7 +108,6 @@ const Footer = () => {
                   <a
                     className="text-gray-900 transition hover:text-gray-900/75"
                     href="/about"
-                    // target="_blank"
                     rel="noreferrer"
                   >
                     Users
@@ -120,7 +118,6 @@ const Footer = () => {
                   <a
                     className="text-gray-900 transition hover:text-gray-900/75"
                     href="/coins"
-                    // target="_blank"
                     rel="noreferrer"
                   >
                     Coins
@@ -131,7 +128,6 @@ const Footer = () => {
                   <a
                     className="text-gray-900 transition hover:text-gray-900/75"
                     href="/exchanges"
-                    // target="_blank"
                     rel="noreferrer"
                   >
                     Exchanges
