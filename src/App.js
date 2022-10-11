@@ -13,12 +13,12 @@ function App() {
     <div>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/coins" element={<Coinspage />} />
-        <Route path="/exchanges" element={<Exchanges />} />
-        <Route path="/coins/:uuid" element={<Coin />} />
-        <Route path="/favourite" element={<Favourite />} />
-        <Route path="/about" element={<AboutUsPage />} />
+        <Route index element={<Homepage />} />
+        <Route path="coins" element={<Coinspage />} />
+        <Route path="exchanges" element={<Exchanges />} />
+        <Route path="coins/:uuid" element={<Coin />} />
+        <Route path="favourite" element={<Favourite />} />
+        <Route path="about" element={<AboutUsPage />} />
       </Routes>
       <Footer />
     </div>
