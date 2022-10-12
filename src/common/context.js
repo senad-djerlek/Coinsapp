@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const appContext = createContext();
 
@@ -17,7 +17,7 @@ const AppContextProvider = ({ children }) => {
     setFavouriteCoins((prevState) => {
       return { ...prevState, [coin.uuid]: coin };
     });
-    toast.success("Uspesno ste dodali artikal u korpu!");
+    toast("You have added coin to your favourite page", { icon: "❤️" });
   };
 
   const values = {

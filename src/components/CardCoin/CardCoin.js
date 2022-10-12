@@ -19,7 +19,7 @@ function CardCoin({
   return (
     <div>
       <div key={uuid}>
-        <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+        <div className="w-94 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]">
           <p>{rank}</p>
 
           <img src={iconUrl} width={50} alt={name} />

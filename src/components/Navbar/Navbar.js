@@ -13,13 +13,8 @@ const NavBar = () => {
 
   return (
     <div className="sticky top-0 z-50 ">
-      <nav
-        style={{
-          background: "",
-        }}
-        className=" bg-blue-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900  sticky bottom-0 "
-      >
-        <div className="container flex flex-wrap justify-between items-center mx-auto  ">
+      <nav className=" bg-blue-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 sticky bottom-0 ">
+        <div className="container flex flex-wrap justify-between items-center mx-auto ">
           <div
             className="flex"
             style={{
@@ -39,7 +34,7 @@ const NavBar = () => {
           <ul className="flex flex-col justify-center p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 w-1/2 ">
             <li>
               <NavLink
-                to={"/"}
+                to="/"
                 end
                 className={({ isActive }) =>
                   isActive ? activeClassName : dissclass
@@ -60,7 +55,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to={"/exchanges"}
+                to="/exchanges"
                 className={({ isActive }) =>
                   isActive ? activeClassName : dissclass
                 }
@@ -70,7 +65,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to={"/about"}
+                to="/about"
                 className={({ isActive }) =>
                   isActive ? activeClassName : dissclass
                 }
@@ -109,7 +104,7 @@ const NavBar = () => {
                   type="text"
                   id="default-search"
                   className="block p-4 pl-10  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-70 h-9"
-                  placeholder="Search "
+                  placeholder="Search crypto..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
