@@ -10,12 +10,17 @@ function Favourite() {
     <div className="flex flex-col min-h-[47.8vh]">
       {Object.keys(favouriteCoins).length === 0 ? (
         <div className=" min-h-[47.8vh] flex flex-col justify-center items-center">
+          <img
+            width={400}
+            src="https://i.postimg.cc/rstHXmpL/No-data-pana.png"
+            alt="photo"
+          />
           <h1 className="mb-10">
             You haven't added any coin to your favourite list, please add some.
           </h1>
           <button
             onClick={() => navigate("/coins")}
-            className="text-xl font-bold text-center  rounded-xl"
+            className="text-xl font-bold text-center  rounded-xl mb-4"
           >
             Go to coins
           </button>

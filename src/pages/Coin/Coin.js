@@ -56,6 +56,7 @@ function Coin() {
           </p>
         </div>
 
+
         <div className="text-blue-500">
           <div className="absolute right-16 ">
             <NavLink to="/" className="m-4">
@@ -70,7 +71,7 @@ function Coin() {
       </div>
       <hr className="border-t-2 border-indigo-300" />
 
-      <div className="flex items-center justify-around mt-10 ">
+      <div className="flex items-center justify-around mt-10  ">
         <h3 className="font-bold mb-2 ">Price chart </h3>
         <p>
           24h <span className="text-green-500"> {coin?.change} %</span>

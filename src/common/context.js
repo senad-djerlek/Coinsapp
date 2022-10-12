@@ -17,6 +17,7 @@ const AppContextProvider = ({ children }) => {
     setFavouriteCoins((prevState) => {
       return { ...prevState, [coin.uuid]: coin };
     });
+
     toast("You have added coin to your favourite page", { icon: "❤️" });
   };
 

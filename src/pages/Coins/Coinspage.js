@@ -10,7 +10,7 @@ function Coinspage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(12);
 
-  const { search, toggleFavoriteCoint } = useContext(appContext);
+  const { search, toggleFavoriteCoint, setSearch } = useContext(appContext);
 
   const debounceTerm = useDebounce(search, 200);
 
@@ -49,12 +49,47 @@ function Coinspage() {
   const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div className="w-full flex flex-col justify-center min-h-[47.8vh]">
+    <div className=" flex flex-col justify-center min-h-[47.8vh] ">
+      <form onSubmit={(e) => e.preventDefault()}>
+        <label
+          htmlFor="default-search"
+          className="mb-2 text-sm ml-8 font-medium text-gray-900 sr-only dark:text-gray-300 "
+        >
+          Search
+        </label>
+        <div className=" relative z-10 flex justify-center items-center ">
+          <div className="flex absolute inset-y-0  items-center pl-3 pointer-events-none justify-center">
+            <svg
+              aria-hidden="true"
+              className="w-5 h-5 text-gray-500 dark:text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="default-search"
+            className="block p-4 pl-10  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-70 h-9 mt-3 z-40"
+            placeholder="Search cryptos "
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      </form>{" "}
       {currentPosts.length === 0 ? (
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center ">
           <div role="status">
             <svg
-              class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+              className="relavite  top-10 inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +107,7 @@ function Coinspage() {
           </div>
         </div>
       ) : (
-        <div className="w-full flex flex-col justify-center">
+        <div className=" w-10/12  h-[50px]flex flex-col justify-center ml-32 mt-10">
           <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px] overflow-hidden">
             <p>Rank</p>
 
@@ -83,6 +118,7 @@ function Coinspage() {
             <div className="w-20">
               <p className="">Price</p>
             </div>
+
             <div className="w-20">24hVolume</div>
             <div className="w-20">marketCap</div>
             <div className="w-36"></div>

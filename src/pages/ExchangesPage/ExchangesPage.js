@@ -41,9 +41,9 @@ export default function Exchanges() {
   const currentPosts = exchanges.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div className="w-full flex flex-col justify-center min-h-[47.8vh]">
+    <div className=" flex flex-col justify-center  min-h-[47.8vh]">
       {currentPosts.length === 0 ? (
-        <div class="flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <div role="status">
             <svg
               class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -64,11 +64,11 @@ export default function Exchanges() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="w-10/12  h-[50px]flex flex-col justify-center ml-32 mt-10">
           {currentPosts.slice(0, 15).map((exchange) => (
             <div key={exchange.uuid}>
-              <div className="flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
-                <div className="w-32">
+              <div className=" flex justify-around items-center px-25 rounded-md ml-9 mt-2 mb-2 mr-10 h-[50px]  overflow-hidden">
+                <div className="">
                   <img
                     width={50}
                     src={exchange.iconUrl}
