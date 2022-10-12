@@ -43,7 +43,7 @@ export default function Exchanges() {
   return (
     <div className=" flex flex-col justify-center  min-h-[47.8vh]">
       {currentPosts.length === 0 ? (
-        <div class="">
+        <div className="flex items-center justify-center">
           <div role="status">
             <svg
               class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
