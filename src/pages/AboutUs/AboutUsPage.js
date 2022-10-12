@@ -1,5 +1,6 @@
 import React from "react";
 import UserCard from "./UserCard/UserCard";
+import CalcModal from "../../components/CalcModal/CalcModal";
 
 const AboutUsPage = () => {
   return (

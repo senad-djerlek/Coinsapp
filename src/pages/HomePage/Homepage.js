@@ -4,6 +4,7 @@ import useDebounce from "../../Hooks/useDebounce";
 import { NavLink, useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
 import { Sparklines, SparklinesLine } from "react-sparklines";
+import CalcModal from "../../components/CalcModal/CalcModal";
 
 function Homepage() {
   const [data, setData] = useState([]);
@@ -73,6 +74,7 @@ function Homepage() {
         >
           Search
         </label>
+
         <div className="relative">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg
@@ -91,6 +93,7 @@ function Homepage() {
               ></path>
             </svg>
           </div>
+
           <input
             type="text"
             id="default-search"
@@ -195,6 +198,7 @@ function Homepage() {
                 </svg>
               )}
             </button>
+            <CalcModal coinData={el} />
           </div>
           <hr className="border-t-1 border-indigo-200" />
         </div>

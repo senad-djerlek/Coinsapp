@@ -75,6 +75,7 @@ function Coinspage() {
               ></path>
             </svg>
           </div>
+
           <input
             type="text"
             id="default-search"
