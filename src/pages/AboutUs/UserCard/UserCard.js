@@ -3,7 +3,7 @@ import React from "react";
 const UserCard = ({ name, place, description, git, gitimage }) => {
   return (
     <div>
-      <div class=" max-w-md mx-auto md:max-w-2xl  min-w-0 break-words bg-white w-72 mb-6 shadow-lg rounded-xl mt-16 transform transition-all delay-200 hover:translate-y-8">
+      <div class=" max-w-md mx-auto md:max-w-2xl  min-w-0 break-words bg-white w-72 mb-6 shadow-lg rounded-xl mt-16 transform transition-all delay-200 hover:translate-y-8 -z-50">
         <div class="px-6">
           <div class="flex flex-wrap justify-center">
             <div class="w-full flex justify-center">
