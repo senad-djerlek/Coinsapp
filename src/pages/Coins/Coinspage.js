@@ -136,6 +136,7 @@ function Coinspage() {
               marketCap={el.marketCap}
               sparkline={el.sparkline.map((el) => el)}
               onClick={() => toggleFavoriteCoint(el)}
+              coinData={el}
             />
           ))}
         </div>

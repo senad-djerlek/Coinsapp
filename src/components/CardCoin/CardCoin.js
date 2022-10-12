@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
 import { Sparklines, SparklinesLine } from "react-sparklines";
+import CalcModal from "../../components/CalcModal/CalcModal";
 
 function CardCoin({
   uuid,
@@ -13,13 +14,14 @@ function CardCoin({
   marketCap,
   onClick,
   sparkline,
+  coinData,
 }) {
   const { favouriteCoins } = useContext(appContext);
   const navigate = useNavigate();
   return (
     <div>
       <div key={uuid}>
-        <div className="  w-94 2 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]  overflow-hidden">
+        <div className="w-94 flex justify-around items-center rounded-md ml-10 mr-10 mt-2 mb-2 h-[80px]">
           <p>{rank}</p>
 
           <img src={iconUrl} width={50} alt={name} />
@@ -42,6 +44,7 @@ function CardCoin({
               <SparklinesLine color="blue" />
             </Sparklines>
           </div>
+
           <button onClick={onClick}>
             {!favouriteCoins[uuid] ? (
               <svg
@@ -77,6 +80,7 @@ function CardCoin({
               </svg>
             )}
           </button>
+          <CalcModal coinData={coinData} />
         </div>
         <hr className="border-t-1 border-indigo-200" />
       </div>
