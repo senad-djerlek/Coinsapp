@@ -7,7 +7,7 @@ import Coinspage from "./pages/CoinsPage/Coinspage";
 import Exchanges from "./pages/ExchangesPage/ExchangesPage";
 import Favourite from "./pages/FavouritePage/Favourite";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
-import Profile from "./pages/Profile.js/Profile";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
