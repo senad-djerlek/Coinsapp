@@ -15,7 +15,6 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 590,
-
   bgcolor: "background.paper",
   border: "2px solid ##009eec",
   boxShadow: 24,
@@ -54,9 +53,12 @@ export default function CalcModal(props) {
       >
         <Fade in={open}>
           <Box sx={style}>
+            <Button onClick={handleClose} size="small" className="left-[460px]">
+              x
+            </Button>
+
             <Typography>
-              <Button onClick={handleClose}>x</Button>
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center mb-4">
                 <h1 className="pb-3">{coinData?.name}</h1>
                 <img
                   className="ml-3 pb-3"

@@ -20,7 +20,7 @@ function Favourite() {
           </h1>
           <button
             onClick={() => navigate("/coins")}
-            className="text-xl font-bold text-center  rounded-xl mb-4"
+            className="text-xl font-bold text-center  rounded-xl pb-12"
           >
             Go to coins
           </button>
