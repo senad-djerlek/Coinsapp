@@ -11,7 +11,7 @@ root.render(
   <BrowserRouter>
     <React.StrictMode>
       <AppContextProvider>
-        <Toaster position="top-right" reverseOrder="true" />
+        <Toaster position="bot-left" reverseOrder="true" />
         <App />
       </AppContextProvider>
     </React.StrictMode>

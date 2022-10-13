@@ -1,18 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import useDebounce from "../../Hooks/useDebounce";
-import { useNavigate } from "react-router-dom";
 import { appContext } from "../../common/context";
-import { Sparklines, SparklinesLine } from "react-sparklines";
-import CalcModal from "../../components/CalcModal/CalcModal";
+import CardCoin from "../../components/CardCoin/CardCoin";
+import Search from "../../components/Search/Search";
 
 function Homepage() {
   const [data, setData] = useState([]);
 
-  const { search, favouriteCoins, toggleFavoriteCoint, setSearch } =
+  const { search, toggleFavoriteCoint, favouriteCoins } =
     useContext(appContext);
-
-  const navigate = useNavigate();
 
   const debounceTerm = useDebounce(search, 200);
 
@@ -55,140 +52,37 @@ function Homepage() {
           alt="logo"
         />
       </div>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <label
-          htmlFor="default-search"
-          className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
-        >
-          Search
-        </label>
-
-        <div className="relative">
-          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              ></path>
-            </svg>
-          </div>
-
-          <input
-            type="text"
-            id="default-search"
-            className="block p-4 pl-10  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-70 h-9 mt-3 z-40"
-            placeholder="Search cryptos "
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-      </form>{" "}
+      <Search />
       <div className="w-10/12">
         <div className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden">
-          <p>Rank</p>
-          <div width={50} className="ml-8"></div>
-          <div className="w-20">
-            <p>Name</p>
+          <p className="w-5">Rank</p>
+          <div className="w-14"></div>
+          <div className="w-20 mr-3">Name</div>
+          <div className="w-20 pl-2">
+            <p className="font-bold text-sm">Price </p>
           </div>
-          <div className="w-20">
-            <p>Price</p>
-          </div>
-          <div className="w-20 ">24hVolume</div>
-          <div className="w-20 ml-6">marketCap</div>
-          <div className="w-36"></div>
-          <div className="w-15"></div>
+          <div className="w-20 font-bold text-sm pl-2">24hVolume</div>
+          <div className="w-20 font-bold text-sm pl-7">marketCap</div>
+          <div className="w-32"></div>
+          <div className="w-20"></div>
+          <div className="w-5"></div>
         </div>
+        {data.map((el) => (
+          <CardCoin
+            uuid={el.uuid}
+            rank={el.rank}
+            iconUrl={el.iconUrl}
+            name={el.name}
+            price={el.price}
+            hVolume={el["24hVolume"]}
+            marketCap={el.marketCap}
+            sparkline={el.sparkline.map((el) => el)}
+            onClick={() => toggleFavoriteCoint(el)}
+            coinData={el}
+          />
+        ))}
       </div>
-      <hr className="border-t-1 border-indigo-200 " />
-      {data.map((el) => (
-        <div key={el.uuid} className="w-10/12">
-          <div
-            key={el.uuid}
-            className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden"
-          >
-            <p className="w-5">{el?.rank}</p>
-            <img
-              src={el.iconUrl}
-              width={50}
-              alt={el.name}
-              onClick={() => navigate(`/coins/${el.uuid}`)}
-              className="cursor-pointer"
-            />
-            <div
-              className="w-20 cursor-pointer"
-              onClick={() => navigate(`/coins/${el.uuid}`)}
-            >
-              <p>{el.name}</p>
-            </div>
-            <div className="w-20">
-              <p className="font-bold text-sm">
-                ${Number(el.price).toLocaleString()}
-              </p>
-            </div>
-            <div className="w-20 font-bold text-sm">
-              ${Number(el["24hVolume"]).toLocaleString()}
-            </div>
-            <div className="w-20 font-bold text-sm ml-5">
-              ${Number(el.marketCap).toLocaleString()}
-            </div>
-            <div className="w-32">
-              <Sparklines data={el.sparkline.map((el) => el)}>
-                <SparklinesLine color="blue" />
-              </Sparklines>
-            </div>
-            <button
-              onClick={() => {
-                toggleFavoriteCoint(el);
-              }}
-            >
-              {!favouriteCoins[el.uuid] ? (
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  data-prefix="fas"
-                  data-icon="heart"
-                  className="w-5 text-red-500"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
-                  ></path>
-                </svg>
-              ) : (
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  data-prefix="fas"
-                  data-icon="heart"
-                  className="w-5 text-red-500"
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
-                  ></path>
-                </svg>
-              )}
-            </button>
-            <CalcModal coinData={el} />
-          </div>
-          <hr className="border-t-1 border-indigo-200" />
-        </div>
-      ))}
+      <hr className="border-t-1 border-indigo-200" />
     </div>
   );
 }

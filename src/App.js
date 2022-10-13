@@ -3,7 +3,7 @@ import Coin from "./pages/Coin/Coin";
 import NavBar from "./components/Navbar/Navbar";
 import Homepage from "./pages/HomePage/Homepage";
 import Footer from "./components/Footer/Footer";
-import Coinspage from "./pages/Coins/Coinspage";
+import Coinspage from "./pages/CoinsPage/Coinspage";
 import Exchanges from "./pages/ExchangesPage/ExchangesPage";
 import Favourite from "./pages/FavouritePage/Favourite";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
