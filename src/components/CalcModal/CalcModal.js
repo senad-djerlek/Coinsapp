@@ -14,9 +14,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: 590,
+
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "2px solid ##009eec",
   boxShadow: 24,
   p: 4,
 };
@@ -33,15 +34,13 @@ export default function CalcModal(props) {
   };
 
   let calculate = (coinValue * coinData.price).toFixed(2);
-  console.log(coinValue);
-  console.log(calculate);
 
   return (
     <div>
       <Button onClick={handleOpen}>
-        {" "}
         <CalculateIcon />
       </Button>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -56,10 +55,11 @@ export default function CalcModal(props) {
         <Fade in={open}>
           <Box sx={style}>
             <Typography>
+              <Button onClick={handleClose}>x</Button>
               <div className="flex justify-center items-center">
-                <h1>{coinData?.name}</h1>
+                <h1 className="pb-3">{coinData?.name}</h1>
                 <img
-                  className="ml-3"
+                  className="ml-3 pb-3"
                   src={coinData?.iconUrl}
                   alt={"logo"}
                   width={22}
@@ -70,18 +70,26 @@ export default function CalcModal(props) {
             <div className="flex justify-start items-center">
               <input
                 type={"number"}
-                className="  p-5 pl-10  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
+                className="p-5    text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
                 onChange={(e) => onChange(e.target.value)}
-                defaultValue={coinValue}
+                value={coinValue}
               />
-              <h2 className="ml-5 text-xl">x</h2>
-              <h2 className="ml-3 font-bold">
+
+              <h2 className="ml-5 mr-2  text-xl">x</h2>
+              <input
+                className="w-36 p-5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-5 mt-3 z-40"
+                readOnly
+                value={`$${Number(coinData?.price).toLocaleString()}`}
+              />
+              {/* <h2 className="ml-3 font-bold">
                 ${Number(coinData?.price).toLocaleString()}
-              </h2>
+              </h2> */}
               <h2 className="ml-3">=</h2>
-              <h2 className="ml-3 font-bold">
-                ${Number(calculate).toLocaleString()}
-              </h2>
+              <input
+                className="w-25 h-10 mt-2 ml-2 pl-1 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                readOnly
+                value={`$ ${Number(calculate).toLocaleString()}`}
+              />
             </div>
           </Box>
         </Fade>
