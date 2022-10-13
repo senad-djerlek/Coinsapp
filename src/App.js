@@ -7,6 +7,7 @@ import Coinspage from "./pages/CoinsPage/Coinspage";
 import Exchanges from "./pages/ExchangesPage/ExchangesPage";
 import Favourite from "./pages/FavouritePage/Favourite";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
+import Profile from "./pages/Profile.js/Profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="coins/:uuid" element={<Coin />} />
         <Route path="favourite" element={<Favourite />} />
         <Route path="about" element={<AboutUsPage />} />
+        <Route path="profile" element={<Profile />} />
       </Routes>
       <Footer />
     </div>
