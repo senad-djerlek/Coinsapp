@@ -3,7 +3,7 @@ import UserCard from "../../components/UserCard/UserCard";
 
 const AboutUsPage = () => {
   return (
-    <div className="mt-24 mb-20 flex flex-row justify-evenly items-center">
+    <div className="mt-24 mb-20 flex flex-row justify-evenly items-center min-h-[54vh]">
       <UserCard
         name="Aldin Halilovic"
         place="Novi Pazar, Serbia"

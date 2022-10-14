@@ -22,17 +22,18 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  overflow: "auto",
 };
 
 export default function TransitionsModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   const { modalData } = React.useContext(appContext);
-  const coinData = modalData;
-  console.log(modalData);
+
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center max-w-[100vw] min-h-[54vh]">
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -47,20 +48,30 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <div>
-              {coinData.map((el) => (
-                <CardCoin
-                  uuid={el.uuid}
-                  rank={el.rank}
-                  iconUrl={el.iconUrl}
-                  name={el.name}
-                  price={el.price}
-                  hVolume={el["24hVolume"]}
-                  marketCap={el.marketCap}
-                  sparkline={el.sparkline.map((el) => el)}
-                  coinData={el}
-                />
-              ))}
+            <div className="w-12/12 ">
+              <tabel>
+                <tr>
+                  <th className="w-60">Rank</th>
+                  <th className="w-60">Name</th>
+                  <th className="w-60">Price</th>
+                  <th className="w-60">marketCap</th>
+                  <th className="w-60">Check</th>
+                  <th className="w-60">Amount</th>
+                </tr>
+                {modalData.map((el) => (
+                  <tr>
+                    <td className="w-60 h-24">{el.rank}</td>
+                    <td className="w-60 h-24">
+                      <img src={el.iconUrl} width={40} alt="symbol" />
+                      {el.name}
+                    </td>
+                    <td className="w-60 h-24">{el.price}</td>
+                    <td className="w-60 h-24">{el.marketCap}</td>
+                    <td className="w-60 h-24">Check</td>
+                    <td className="w-60 h-24">Amount</td>
+                  </tr>
+                ))}
+              </tabel>
             </div>
           </Box>
         </Fade>
