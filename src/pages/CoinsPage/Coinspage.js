@@ -51,9 +51,9 @@ function Coinspage() {
   const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div className=" flex flex-col justify-center min-h-[47.8vh] ">
+    <div className=" flex flex-col justify-center min-h-[56vh] max-w-[100vw]">
       {currentPosts.length === 0 ? (
-        <div class="flex flex-col items-center justify-center ">
+        <div class="flex flex-col items-center justify-center max-w-[100vw]">
           <div role="status">
             <svg
               className="relavite  top-10 inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -74,7 +74,7 @@ function Coinspage() {
           </div>
         </div>
       ) : (
-        <div className="w-screen flex flex-col justify-center items-center">
+        <div className="max-w-[100vw] flex flex-col justify-center items-center">
           <Search />
           <div className="w-10/12">
             <div className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden">

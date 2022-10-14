@@ -56,7 +56,6 @@ function Coin() {
           </p>
         </div>
 
-
         <div className="text-blue-500">
           <div className="absolute right-16 ">
             <NavLink to="/" className="m-4">
