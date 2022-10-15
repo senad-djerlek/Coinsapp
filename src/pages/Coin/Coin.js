@@ -79,7 +79,10 @@ function Coin() {
         </p>
         <p>
           {" "}
-          High <span className="font-bold">${coin?.supply?.max}</span>{" "}
+          High{" "}
+          <span className="font-bold">
+            {`$${Number(coin?.supply?.circulating).toLocaleString()}`}
+          </span>{" "}
         </p>
       </div>
       <hr className="border-t-2 border-indigo-200 " />
@@ -234,7 +237,7 @@ function Coin() {
             // style={{
             //   color: `${coin?.color}`,
             // }}
-            className="px-3 pt-3 border border-indigo-600 rounded text-sm ml-3 mb-10 font-serif m"
+            className="px-3 pt-3 border pb-3 border-indigo-600 rounded text-sm ml-3 mb-10 font-serif m"
             dangerouslySetInnerHTML={{ __html: coin?.description }}
           />
         </div>
@@ -298,7 +301,9 @@ function Coin() {
                 <p>{link?.slice(4, 5)}</p>
               </div>
               <p>
-                <a href={`https://${name?.slice(4, 5)}`}>{name?.slice(4, 5)}</a>
+                <a href={`https://github.com/${name?.slice(4, 5)}`}>
+                  {name?.slice(4, 5)}
+                </a>
               </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
@@ -311,7 +316,9 @@ function Coin() {
                 <p>{link?.slice(5, 6)}</p>
               </div>
               <p>
-                <a href={`https://${name?.slice(5, 6)}`}>{name?.slice(5, 6)}</a>
+                <a href={`https://reddit.com/${name?.slice(5, 6)}`}>
+                  {name?.slice(5, 6)}
+                </a>
               </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
@@ -319,11 +326,13 @@ function Coin() {
               <div className="flex items-center  w-32 justify-evenly font-bold">
                 <div className="w-10 -ml-2">
                   <TelegramIcon fontSize="large" color="primary" />
-                </div>{" "}
+                </div>
                 <p>{link?.slice(6, 7)}</p>
               </div>
               <p>
-                <a href={`https://${name?.slice(6, 7)}`}>{name?.slice(6, 7)}</a>
+                <a href={`https://t.me/${name?.slice(6, 7)}`}>
+                  {name?.slice(6, 7)}
+                </a>
               </p>
             </div>
             <hr className="border-t-2 border-indigo-200" />
@@ -334,7 +343,9 @@ function Coin() {
                 </div>
                 <p>{link?.slice(8, 9)}</p>
               </div>
-              <p>{name?.slice(8, 9)}</p>
+              <a href={`https://bitcoin.org/${name?.slice(8, 9)}`}>
+                {name?.slice(8, 9)}
+              </a>
             </div>
             <hr className="border-t-2 border-indigo-100" />
           </div>
