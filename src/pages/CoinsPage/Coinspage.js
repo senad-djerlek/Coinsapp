@@ -14,7 +14,7 @@ function Coinspage() {
   const { search, toggleFavoriteCoint, setSearch, favouriteCoins } =
     useContext(appContext);
 
-  const debounceTerm = useDebounce(search, 200);
+  const debounceTerm = useDebounce(search, 150);
 
   const options = {
     method: "GET",
