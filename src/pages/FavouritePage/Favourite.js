@@ -7,7 +7,7 @@ function Favourite() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col min-h-[54vh]">
+    <div className="flex flex-col min-h-[60vh]">
       {Object.keys(favouriteCoins).length === 0 ? (
         <div className=" min-h-[47.8vh] flex flex-col justify-center items-center">
           <img
