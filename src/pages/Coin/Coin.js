@@ -23,7 +23,7 @@ function Coin() {
   const { uuid } = useParams();
   const link = coin?.links?.map((el) => el.type);
   const name = coin?.links?.map((el) => el.name);
-
+  console.log("name", name);
   const options = {
     method: "GET",
     url: `https://coinranking1.p.rapidapi.com/coin/${uuid}`,
@@ -58,9 +58,9 @@ function Coin() {
           </p>
         </div>
 
-        <div className="text-blue-500 ">
-          <div className=" absolute right-16 ">
-            <NavLink to={"/"} className="m-4">
+        <div className="text-blue-500  ">
+          <div className=" absolute right-12 ">
+            <NavLink to={"/"} className="">
               Home
             </NavLink>
             <NavLink className="m-4" to={"/exchanges"}>
@@ -248,7 +248,9 @@ function Coin() {
                 </div>
                 <p className="">{link?.slice(0, 1)}</p>
               </div>
-              <p className="">{name?.slice(0, 1)}</p>
+              <p>
+                <a href={`https://${name?.slice(0, 1)}`}>{name?.slice(0, 1)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
             <div className="flex justify-between items-center mt-4 w-41 ">
@@ -258,7 +260,9 @@ function Coin() {
                 </div>
                 <p>{link?.slice(1, 2)}</p>
               </div>
-              <p>{name?.slice(1, 2)}</p>
+              <p>
+                <a href={`https://${name?.slice(1, 2)}`}>{name?.slice(1, 2)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
             <div className="flex justify-between items-center mt-4 w-41 ">
@@ -271,7 +275,9 @@ function Coin() {
                 </div>
                 <p>{link?.slice(2, 3)}</p>
               </div>
-              <p>{name?.slice(2, 3)}</p>
+              <p>
+                <a href={`https://${name?.slice(2, 3)}`}>{name?.slice(2, 3)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
             <div className="flex justify-between items-center mt-4 w-41 ">
@@ -279,7 +285,9 @@ function Coin() {
                 <CurrencyExchangeIcon fontSize="large" color="primary" />
                 <p>{link?.slice(3, 4)}</p>
               </div>
-              <p>{name?.slice(3, 4)}</p>
+              <p>
+                <a href={`https://${name?.slice(3, 4)}`}>{name?.slice(3, 4)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
             <div className="flex justify-between items-center mt-4 w-41 ">
@@ -289,7 +297,9 @@ function Coin() {
                 </div>
                 <p>{link?.slice(4, 5)}</p>
               </div>
-              <p>{name?.slice(4, 5)}</p>
+              <p>
+                <a href={`https://${name?.slice(4, 5)}`}>{name?.slice(4, 5)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
 
@@ -300,7 +310,9 @@ function Coin() {
                 </div>{" "}
                 <p>{link?.slice(5, 6)}</p>
               </div>
-              <p>{name?.slice(5, 6)}</p>
+              <p>
+                <a href={`https://${name?.slice(5, 6)}`}>{name?.slice(5, 6)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-100" />
             <div className="flex justify-between items-center mt-4 w-41 ">
@@ -310,7 +322,9 @@ function Coin() {
                 </div>{" "}
                 <p>{link?.slice(6, 7)}</p>
               </div>
-              <p>{name?.slice(6, 7)}</p>
+              <p>
+                <a href={`https://${name?.slice(6, 7)}`}>{name?.slice(6, 7)}</a>
+              </p>
             </div>
             <hr className="border-t-2 border-indigo-200" />
             <div className="flex justify-between items-center mt-4 w-41 ">
