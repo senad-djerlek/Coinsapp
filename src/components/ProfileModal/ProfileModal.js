@@ -40,7 +40,7 @@ export default function TransitionsModal() {
 
   return (
     <div className="flex flex-col justify-center items-center max-w-[100vw] min-h-[54vh]">
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>CRYPTO WALLET</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
