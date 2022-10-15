@@ -89,7 +89,10 @@ const NavBar = () => {
               ></path>
             </svg>
           </ul>
-          <PersonPinIcon className="" onClick={() => navigate("/profile")} />
+          <PersonPinIcon
+            className=" cursor-pointer"
+            onClick={() => navigate("/profile")}
+          />
         </div>
       </nav>
     </div>
