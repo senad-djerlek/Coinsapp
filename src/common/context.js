@@ -7,7 +7,22 @@ const appContext = createContext();
 const AppContextProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [favouriteCoins, setFavouriteCoins] = useState({});
+  const [profileCoin, setProfileCoin] = useState({});
   const [modalData, setModalData] = useState([]);
+
+  const toggleProfileCoin = (coin) => {
+    if (profileCoin[coin.uuid]) {
+      setProfileCoin((_) => {
+        const { [coin.uuid]: rmObj, ...rest } = profileCoin;
+        return rest;
+      });
+      return;
+    }
+    setProfileCoin((prevState) => {
+      return { ...prevState, [coin.uuid]: coin };
+    });
+  };
+
   const toggleFavoriteCoint = (coin) => {
     if (favouriteCoins[coin.uuid]) {
       setFavouriteCoins((_) => {
@@ -33,7 +48,7 @@ const AppContextProvider = ({ children }) => {
         "tiers[0]": "1",
         orderBy: "marketCap",
         orderDirection: "desc",
-        limit: "10",
+        limit: "20",
         offset: "0",
         search: "",
         uuid: "razxDUgYGNAdQ",
@@ -59,8 +74,10 @@ const AppContextProvider = ({ children }) => {
     search,
     setSearch,
     favouriteCoins,
+    profileCoin,
     setFavouriteCoins,
     toggleFavoriteCoint,
+    toggleProfileCoin,
     modalData,
     getModalData,
   };

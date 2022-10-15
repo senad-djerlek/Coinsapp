@@ -41,7 +41,7 @@ export default function Exchanges() {
   const currentPosts = exchanges.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <div className=" flex flex-col justify-center  min-h-[47.8vh]">
+    <div className=" flex flex-col justify-center min-h-[60vh]">
       {currentPosts.length === 0 ? (
         <div className="flex items-center justify-center">
           <div role="status">
