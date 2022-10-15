@@ -23,26 +23,21 @@ const style = {
   overflow: "auto",
 };
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
 export default function TransitionsModal() {
+  const { profileCoin, toggleProfileCoin } = React.useContext(appContext);
+  console.log(profileCoin);
+
   const { modalData } = React.useContext(appContext);
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [coinChecked, setCoinChecked] = React.useState(
-    new Array(modalData.length).fill(false)
-  );
 
-  const handleOnChange = (position) => {
-    const updatedCheckedState = coinChecked.map((item, index) =>
-      index === position ? !item : item
-    );
-    console.log(updatedCheckedState);
+  const ref = React.useRef(null);
+  const handleFocus = () => {
+    ref.current.focus();
   };
 
-  console.log(coinChecked);
   return (
     <div className="flex flex-col justify-center items-center max-w-[100vw] min-h-[54vh]">
       <Button onClick={handleOpen}>Open modal</Button>
@@ -70,68 +65,65 @@ export default function TransitionsModal() {
                   <th className="w-60">Amount</th>
                 </tr>
 
-                {modalData.map(
-                  ({ uuid, rank, iconUrl, name, price, marketCap }, index) => (
-                    <tr key={uuid}>
-                      <td className="w-20 h-24">
-                        <div className="flex justify-center items-center">
-                          {rank}
-                        </div>
-                      </td>
-                      <td className="w-60 h-24  flex flex-col justify-center items-center">
-                        <img src={iconUrl} width={40} alt="symbol" />
-                        {name}
-                        <hr />
-                      </td>
-                      <td className="w-60 h-24">
-                        <div className="flex justify-center items-center">
-                          {Number(price).toLocaleString()}
-                        </div>
-                      </td>
-                      <td className="w-60 h-24">
-                        <div className="flex justify-center items-center">
-                          {Number(marketCap).toLocaleString()}
-                        </div>
-                      </td>
-                      <td className="w-60 h-24">
-                        <div className="flex justify-center items-center">
-                          <input
-                            type="checkbox"
-                            id={`custom-checkbox-${index}`}
-                            name={name}
-                            value={name}
-                            checked={coinChecked[index]}
-                            onChange={() => handleOnChange(index)}
-                          />
-                        </div>
-                      </td>
-                      <td className="w-60 h-24 ">
-                        <div className="flex justify-center items-center">
-                          {coinChecked ? (
-                            <div>
-                              <input
-                                type={"number"}
-                                className="p-5    text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
-                                // onChange={(e) => onChange(e.target.value)}
-                                // value={coinValue}
-                              />
-                            </div>
-                          ) : (
-                            <div>
-                              <input
-                                type={"number"}
-                                className="p-5    text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
-                                readOnly
-                                // onChange={(e) => onChange(e.target.value)}
-                                // value={coinValue}
-                              />
-                            </div>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  )
-                )}
+                {modalData.map((el) => (
+                  <tr key={el.uuid}>
+                    <td className="w-20 h-24">
+                      <div className="flex justify-center items-center">
+                        {el.rank}
+                      </div>
+                    </td>
+                    <td className="w-60 h-24  flex flex-col justify-center items-center">
+                      <img src={el.iconUrl} width={40} alt="symbol" />
+                      {el.name}
+                      <hr />
+                    </td>
+                    <td className="w-60 h-24">
+                      <div className="flex justify-center items-center">
+                        {Number(el.price).toLocaleString()}
+                      </div>
+                    </td>
+                    <td className="w-60 h-24">
+                      <div className="flex justify-center items-center">
+                        {Number(el.marketCap).toLocaleString()}
+                      </div>
+                    </td>
+                    <td className="w-60 h-24">
+                      <div className="flex justify-center items-center">
+                        <input
+                          type="checkbox"
+                          name={el.name}
+                          value={el.name}
+                          onClick={() => {
+                            toggleProfileCoin(el);
+                            handleFocus();
+                          }}
+                        />
+                      </div>
+                    </td>
+                    <td className="w-60 h-24 ">
+                      <div className="flex justify-center items-center">
+                        {profileCoin[el.uuid] ? (
+                          <div>
+                            <input
+                              ref={ref}
+                              type={"number"}
+                              className="p-5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
+                            />
+                          </div>
+                        ) : (
+                          <div>
+                            <input
+                              type={"number"}
+                              readOnly
+                              className="p-5 focus-visible:none text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </td>
+                    <hr />
+                  </tr>
+                ))}
               </tabel>
             </div>
           </Box>
