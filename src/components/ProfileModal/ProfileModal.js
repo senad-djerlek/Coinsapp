@@ -47,7 +47,7 @@ export default function TransitionsModal() {
     <div className="flex flex-col justify-center items-center max-w-[100vw] min-h-[54vh]">
       {profileList.length === 0 ? (
         <div>
-          <Button onClick={handleOpen}>Open modal</Button>
+          <Button onClick={handleOpen}>CRYPTO WALLET</Button>
           <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -71,6 +71,7 @@ export default function TransitionsModal() {
                       <th className="w-60">Check</th>
                       <th className="w-60">Amount</th>
                     </tr>
+
 
                     {modalData.map((el) => (
                       <tr key={el.uuid}>
