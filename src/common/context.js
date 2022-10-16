@@ -9,6 +9,7 @@ const AppContextProvider = ({ children }) => {
   const [favouriteCoins, setFavouriteCoins] = useState({});
   const [profileCoin, setProfileCoin] = useState({});
   const [modalData, setModalData] = useState([]);
+  const [profileList, setProfileList] = useState([]);
 
   const toggleProfileCoin = (coin) => {
     if (profileCoin[coin.uuid]) {
@@ -21,6 +22,10 @@ const AppContextProvider = ({ children }) => {
     setProfileCoin((prevState) => {
       return { ...prevState, [coin.uuid]: coin };
     });
+  };
+
+  const addToProfileList = (list) => {
+    setProfileList(list);
   };
 
   const toggleFavoriteCoint = (coin) => {
@@ -80,6 +85,8 @@ const AppContextProvider = ({ children }) => {
     toggleProfileCoin,
     modalData,
     getModalData,
+    addToProfileList,
+    profileList,
   };
 
   return <appContext.Provider value={values}>{children}</appContext.Provider>;
