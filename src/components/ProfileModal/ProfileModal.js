@@ -44,7 +44,7 @@ export default function TransitionsModal() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center max-w-[100vw] min-h-[54vh]">
+    <div className="flex flex-col justify-center items-center max-w-[100vw]">
       {profileList.length === 0 ? (
         <div>
           <Button onClick={handleOpen}>CRYPTO WALLET</Button>
