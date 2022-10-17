@@ -40,9 +40,6 @@ export default function TransitionsModal() {
 
   const [inputValue, setInputValue] = useState(0);
   const [finalValue, setFinalValue] = useState(0);
-  const makeValue = (value) => {
-    setFinalValue(value);
-  };
 
   return (
     <div className="flex flex-col justify-center items-center max-w-[100vw]">

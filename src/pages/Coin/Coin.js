@@ -15,7 +15,7 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 
-import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines";
+import { Sparklines, SparklinesLine } from "react-sparklines";
 
 function Coin() {
   const [coin, setCoin] = useState();
@@ -60,10 +60,7 @@ function Coin() {
 
         <div className="text-blue-500  ">
           <div className=" absolute right-16 ">
-            <NavLink to="/">
-
-              Home
-            </NavLink>
+            <NavLink to="/">Home</NavLink>
             <NavLink className="m-4" to={"/exchanges"}>
               Exchanges
             </NavLink>

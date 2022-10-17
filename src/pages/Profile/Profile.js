@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React from "react";
 import ProfileModal from "../../components/ProfileModal/ProfileModal";
 
@@ -22,7 +21,7 @@ export default function Profile() {
       <div>
         <img
           src="https://i.postimg.cc/wjZfpsYF/Crypto-portfolio-rafiki.png"
-          alt="photo"
+          alt="name"
         />
       </div>
     </div>
