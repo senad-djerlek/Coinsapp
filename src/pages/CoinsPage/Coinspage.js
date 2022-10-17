@@ -36,6 +36,8 @@ function Coinspage() {
     },
   };
 
+  console.log("sdamkdjsak");
+
   const getData = () => {
     axios.request(options).then(function (response) {
       setData(response.data.data.coins);
