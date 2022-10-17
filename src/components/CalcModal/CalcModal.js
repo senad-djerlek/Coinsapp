@@ -5,8 +5,6 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import axios from "axios";
-import { useEffect } from "react";
 import CalculateIcon from "@mui/icons-material/Calculate";
 
 const style = {
@@ -98,8 +96,4 @@ export default function CalcModal(props) {
       </Modal>
     </div>
   );
-}
-
-{
-  /* <h1>{coinData[0]?.price}</h1> */
 }

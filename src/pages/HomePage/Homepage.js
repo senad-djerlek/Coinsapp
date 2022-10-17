@@ -8,8 +8,7 @@ import Search from "../../components/Search/Search";
 function Homepage() {
   const [data, setData] = useState([]);
 
-  const { search, toggleFavoriteCoint, favouriteCoins } =
-    useContext(appContext);
+  const { search, toggleFavoriteCoint } = useContext(appContext);
 
   const debounceTerm = useDebounce(search, 200);
 

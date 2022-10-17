@@ -13,7 +13,7 @@ function Favourite() {
           <img
             width={400}
             src="https://i.postimg.cc/rstHXmpL/No-data-pana.png"
-            alt="photo"
+            alt="empty"
           />
           <h1 className="mb-10">
             You haven't added any coin to your favourite list, please add some.

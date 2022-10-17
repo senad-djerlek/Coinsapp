@@ -11,8 +11,7 @@ function Coinspage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(12);
 
-  const { search, toggleFavoriteCoint, setSearch, favouriteCoins } =
-    useContext(appContext);
+  const { search, toggleFavoriteCoint } = useContext(appContext);
 
   const debounceTerm = useDebounce(search, 200);
 
@@ -35,8 +34,6 @@ function Coinspage() {
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
     },
   };
-
-  console.log("sdamkdjsak");
 
   const getData = () => {
     axios.request(options).then(function (response) {
