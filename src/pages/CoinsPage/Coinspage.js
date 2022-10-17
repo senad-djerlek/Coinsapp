@@ -43,6 +43,7 @@ function Coinspage() {
     });
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getData(), [debounceTerm]);
 
   const lastPostIndex = currentPage * postPerPage;

@@ -39,7 +39,7 @@ function Homepage() {
       setData(response.data.data.coins);
     });
   };
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getData(), [debounceTerm]);
 
   return (
