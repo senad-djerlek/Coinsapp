@@ -98,7 +98,3 @@ export default function CalcModal(props) {
     </div>
   );
 }
-
-{
-  /* <h1>{coinData[0]?.price}</h1> */
-}

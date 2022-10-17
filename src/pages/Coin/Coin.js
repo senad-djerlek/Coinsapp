@@ -41,6 +41,7 @@ function Coin() {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -59,7 +60,8 @@ function Coin() {
 
         <div className="text-blue-500  ">
           <div className=" absolute right-16 ">
-            <NavLink to={"/"} className="">
+            <NavLink to="/">
+
               Home
             </NavLink>
             <NavLink className="m-4" to={"/exchanges"}>

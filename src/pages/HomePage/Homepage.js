@@ -8,8 +8,7 @@ import Search from "../../components/Search/Search";
 function Homepage() {
   const [data, setData] = useState([]);
 
-  const { search, toggleFavoriteCoint, favouriteCoins } =
-    useContext(appContext);
+  const { search, toggleFavoriteCoint } = useContext(appContext);
 
   const debounceTerm = useDebounce(search, 150);
 
@@ -40,7 +39,7 @@ function Homepage() {
       setData(response.data.data.coins);
     });
   };
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getData(), [debounceTerm]);
 
   return (

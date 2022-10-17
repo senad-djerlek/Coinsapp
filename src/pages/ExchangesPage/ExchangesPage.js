@@ -35,6 +35,7 @@ export default function Exchanges() {
 
   React.useEffect(() => {
     getExachange();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;

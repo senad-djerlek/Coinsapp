@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
 
@@ -14,6 +14,7 @@ const NavBar = () => {
     <div className="bg-blue-200 sticky top-0 z-20 max-w-screen">
       <nav className="  border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 sticky bottom-0   ">
         <div className="container flex flex-wrap justify-between items-center pl-[220px]">
+
           <div
             className="flex "
             style={{
