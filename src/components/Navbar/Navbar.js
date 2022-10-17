@@ -11,11 +11,12 @@ const NavBar = () => {
     "block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent";
 
   return (
-    <div className="sticky top-0 z-20 max-w-[100vw]">
-      <nav className=" bg-blue-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 sticky bottom-0  ">
-        <div className="container flex flex-wrap justify-between items-center">
+    <div className="bg-blue-200 sticky top-0 z-20 max-w-screen">
+      <nav className="  border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 sticky bottom-0   ">
+        <div className="container flex flex-wrap justify-between items-center pl-[220px]">
+
           <div
-            className="flex"
+            className="flex "
             style={{
               pointerEvents: "none",
             }}
@@ -23,14 +24,14 @@ const NavBar = () => {
             <img
               width={40}
               src="https://i.postimg.cc/8P0LjnXR/logo-removebg-preview.png"
-              className="mr-3 h-6 sm:h-9"
+              className="ml-2   h-6 sm:h-9"
               alt="Coins Logo"
             />
             <p className="self-center text-xl font-mono font-semibold whitespace-nowrap dark:text-white ">
               CRYPTO-NIT
             </p>
           </div>
-          <ul className="flex flex-col justify-center p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 w-1/2 mr-64 ">
+          <ul className="flex flex-col justify-center ml-[100px] p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 w-4/12  mr-64 ">
             <li>
               <NavLink
                 to="/"
@@ -89,7 +90,10 @@ const NavBar = () => {
               ></path>
             </svg>
           </ul>
-          <PersonPinIcon className="" onClick={() => navigate("/profile")} />
+          <PersonPinIcon
+            className="cursor-pointer"
+            onClick={() => navigate("/profile")}
+          />
         </div>
       </nav>
     </div>

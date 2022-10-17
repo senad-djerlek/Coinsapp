@@ -7,7 +7,7 @@ function Favourite() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col min-h-[47.8vh]">
+    <div className="flex flex-col   items-center max-w-[100vw] min-h-[63vh] mt-10">
       {Object.keys(favouriteCoins).length === 0 ? (
         <div className=" min-h-[47.8vh] flex flex-col justify-center items-center">
           <img
@@ -27,7 +27,10 @@ function Favourite() {
         </div>
       ) : (
         Object.keys(favouriteCoins).map((key) => (
-          <div key={favouriteCoins[key].uuid} className="flex flex-col">
+          <div
+            key={favouriteCoins[key].uuid}
+            className="flex flex-col  w-10/12"
+          >
             <div className="w-94 h-[50px] ml-10 mr-10 mt-2 mb-2 flex justify-around items-center rounded-md">
               <img
                 src={favouriteCoins[key].iconUrl}
@@ -72,7 +75,7 @@ function Favourite() {
                 </svg>
               </button>
             </div>
-            <hr className="border-t-2 border-indigo-200 " />
+            <hr className="border-t-2 border-indigo-100 " />
           </div>
         ))
       )}

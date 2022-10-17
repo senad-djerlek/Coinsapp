@@ -13,7 +13,7 @@ function Coinspage() {
 
   const { search, toggleFavoriteCoint } = useContext(appContext);
 
-  const debounceTerm = useDebounce(search, 200);
+  const debounceTerm = useDebounce(search, 150);
 
   const options = {
     method: "GET",
@@ -51,6 +51,7 @@ function Coinspage() {
   const currentPosts = data.slice(firstPostIndex, lastPostIndex);
 
   return (
+
     <div className=" flex flex-col justify-center min-h-[56vh] max-w-[100vw]">
       {currentPosts.length === 0 ? (
         <div class="flex flex-col items-center justify-center max-w-[100vw]">
@@ -70,10 +71,11 @@ function Coinspage() {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       ) : (
+
         <div className="max-w-[100vw] flex flex-col justify-center items-center">
           <Search />
           <div className="w-10/12">
@@ -92,6 +94,7 @@ function Coinspage() {
             </div>
             {currentPosts.map((el) => (
               <CardCoin
+                key={el.uuid}
                 uuid={el.uuid}
                 rank={el.rank}
                 iconUrl={el.iconUrl}
