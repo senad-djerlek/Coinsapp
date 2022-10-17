@@ -3,33 +3,33 @@ import React from "react";
 const UserCard = ({ name, place, description, git, gitimage }) => {
   return (
     <div>
-      <div class="max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-72 mb-6 shadow-lg rounded-xl mt-16 transform transition-all delay-200 hover:translate-y-8 -z-50">
-        <div class="px-6">
-          <div class="flex flex-wrap justify-center">
-            <div class="w-full flex justify-center">
+      <div className="max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-72 mb-6 shadow-lg rounded-xl mt-16 transform transition-all delay-200 hover:translate-y-8 -z-50">
+        <div className="px-6">
+          <div className="flex flex-wrap justify-center">
+            <div className="w-full flex justify-center">
               <div>
                 <img
                   src={gitimage}
-                  class="shadow-xl rounded-full align-middle border-none  -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
+                  className="shadow-xl rounded-full align-middle border-none  -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                   alt="peopl"
                 />
               </div>
             </div>
-            <div class="w-full text-center mt-20"></div>
+            <div className="w-full text-center mt-20"></div>
           </div>
-          <div class="text-center mt-2">
-            <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">
+          <div className="text-center mt-2">
+            <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">
               {name}
             </h3>
-            <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
-              <i class="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
+            <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
+              <i className="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
               {place}
             </div>
           </div>
-          <div class="mt-6 py-6 border-t border-slate-200 text-center">
-            <div class="flex flex-wrap justify-center">
-              <div class="w-full px-4">
-                <p class="font-light leading-relaxed text-slate-600 mb-4">
+          <div className="mt-6 py-6 border-t border-slate-200 text-center">
+            <div className="flex flex-wrap justify-center">
+              <div className="w-full px-4">
+                <p className="font-light leading-relaxed text-slate-600 mb-4">
                   {description}
                 </p>
                 <div className="flex justify-center items-center">

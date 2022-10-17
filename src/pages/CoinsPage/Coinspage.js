@@ -53,7 +53,7 @@ function Coinspage() {
   return (
     <div className=" flex flex-col justify-center min-h-[60vh]">
       {currentPosts.length === 0 ? (
-        <div class="flex flex-col items-center justify-center max-w-[100vw] ">
+        <div className="flex flex-col items-center justify-center max-w-[100vw] ">
           <div role="status">
             <svg
               className="relavite  top-10 inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -70,7 +70,7 @@ function Coinspage() {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       ) : (
@@ -92,6 +92,7 @@ function Coinspage() {
             </div>
             {currentPosts.map((el) => (
               <CardCoin
+                key={el.uuid}
                 uuid={el.uuid}
                 rank={el.rank}
                 iconUrl={el.iconUrl}

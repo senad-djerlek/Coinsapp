@@ -22,7 +22,7 @@ function Coin() {
   const { uuid } = useParams();
   const link = coin?.links?.map((el) => el.type);
   const name = coin?.links?.map((el) => el.name);
-  console.log("name", name);
+
   const options = {
     method: "GET",
     url: `https://coinranking1.p.rapidapi.com/coin/${uuid}`,

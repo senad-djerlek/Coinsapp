@@ -69,6 +69,7 @@ function Homepage() {
         </div>
         {data.map((el) => (
           <CardCoin
+            key={el.uuid}
             uuid={el.uuid}
             rank={el.rank}
             iconUrl={el.iconUrl}
