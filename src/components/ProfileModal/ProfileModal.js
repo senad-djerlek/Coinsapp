@@ -72,7 +72,6 @@ export default function TransitionsModal() {
                       <th className="w-60">Amount</th>
                     </tr>
 
-
                     {modalData.map((el) => (
                       <tr key={el.uuid}>
                         <td className="w-20 h-24">
@@ -153,6 +152,7 @@ export default function TransitionsModal() {
           {Object.keys(profileList).map((key) => (
             <div key={profileList[key].uuid}>
               <h1>{profileList[key].name}</h1>
+
               <h1>{(finalValue * profileList[key].price).toLocaleString()}</h1>
             </div>
           ))}

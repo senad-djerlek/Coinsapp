@@ -15,7 +15,6 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 
-import SearchIcon from "@mui/icons-material/Search";
 import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines";
 
 function Coin() {
@@ -59,14 +58,13 @@ function Coin() {
         </div>
 
         <div className="text-blue-500  ">
-          <div className=" absolute right-12 ">
+          <div className=" absolute right-16 ">
             <NavLink to={"/"} className="">
               Home
             </NavLink>
             <NavLink className="m-4" to={"/exchanges"}>
               Exchanges
             </NavLink>
-            <SearchIcon />
           </div>
         </div>
       </div>
@@ -241,7 +239,7 @@ function Coin() {
             dangerouslySetInnerHTML={{ __html: coin?.description }}
           />
         </div>
-        <div className="w-1/2 ml-10 mt-14">
+        <div className="w-1/2 ml-10 mt-14 ">
           <h1 className="ml-3 font-bold">Links</h1>
           <div className="">
             <div className="flex  justify-between w-41">
@@ -251,7 +249,7 @@ function Coin() {
                 </div>
                 <p className="">{link?.slice(0, 1)}</p>
               </div>
-              <p>
+              <p className="text-blue-600" s>
                 <a href={`https://${name?.slice(0, 1)}`}>{name?.slice(0, 1)}</a>
               </p>
             </div>
@@ -263,7 +261,7 @@ function Coin() {
                 </div>
                 <p>{link?.slice(1, 2)}</p>
               </div>
-              <p>
+              <p className="text-blue-600">
                 <a href={`https://${name?.slice(1, 2)}`}>{name?.slice(1, 2)}</a>
               </p>
             </div>
@@ -278,7 +276,7 @@ function Coin() {
                 </div>
                 <p>{link?.slice(2, 3)}</p>
               </div>
-              <p>
+              <p className="text-blue-600">
                 <a href={`https://${name?.slice(2, 3)}`}>{name?.slice(2, 3)}</a>
               </p>
             </div>
@@ -288,7 +286,7 @@ function Coin() {
                 <CurrencyExchangeIcon fontSize="large" color="primary" />
                 <p>{link?.slice(3, 4)}</p>
               </div>
-              <p>
+              <p className="text-blue-600">
                 <a href={`https://${name?.slice(3, 4)}`}>{name?.slice(3, 4)}</a>
               </p>
             </div>
@@ -300,7 +298,7 @@ function Coin() {
                 </div>
                 <p>{link?.slice(4, 5)}</p>
               </div>
-              <p>
+              <p className="text-blue-600">
                 <a href={`https://github.com/${name?.slice(4, 5)}`}>
                   {name?.slice(4, 5)}
                 </a>
@@ -315,7 +313,7 @@ function Coin() {
                 </div>{" "}
                 <p>{link?.slice(5, 6)}</p>
               </div>
-              <p>
+              <p className="text-blue-600">
                 <a href={`https://reddit.com/${name?.slice(5, 6)}`}>
                   {name?.slice(5, 6)}
                 </a>
@@ -329,7 +327,7 @@ function Coin() {
                 </div>
                 <p>{link?.slice(6, 7)}</p>
               </div>
-              <p>
+              <p className="text-blue-600">
                 <a href={`https://t.me/${name?.slice(6, 7)}`}>
                   {name?.slice(6, 7)}
                 </a>
@@ -343,7 +341,10 @@ function Coin() {
                 </div>
                 <p>{link?.slice(8, 9)}</p>
               </div>
-              <a href={`https://bitcoin.org/${name?.slice(8, 9)}`}>
+              <a
+                className="text-blue-600"
+                href={`https://bitcoin.org/${name?.slice(8, 9)}`}
+              >
                 {name?.slice(8, 9)}
               </a>
             </div>

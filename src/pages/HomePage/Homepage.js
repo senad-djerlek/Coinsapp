@@ -47,8 +47,8 @@ function Homepage() {
     <div className="max-w-screen flex flex-col items-center">
       <div>
         <img
-          className="w-screen h-96"
-          src="https://hedextrade.com/images/home-pages/btc_bg-4.jpg"
+          className="w-screen h-[60vh]"
+          src="https://cryptorecaps.com/psoothof/2022/01/Crypto-1.jpg?fbclid=IwAR3_FxZSYGasypCKN7pfk7QSaWwApo3WZVbMDIBPzhSFvaO7TSSCwc_WNHA"
           alt="logo"
         />
       </div>
