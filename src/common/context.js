@@ -26,6 +26,7 @@ const AppContextProvider = ({ children }) => {
 
   const addToProfileList = (list) => {
     setProfileList(list);
+    console.log("okinuo");
   };
 
   const toggleFavoriteCoint = (coin) => {

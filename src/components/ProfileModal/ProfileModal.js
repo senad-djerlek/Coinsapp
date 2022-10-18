@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import { appContext } from "../../common/context";
-import Checkbox from "@mui/material/Checkbox";
+import ModalCard from "../ModalCard/ModalCard";
 
 const style = {
   display: "flex",
@@ -23,23 +23,14 @@ const style = {
   p: 4,
   overflow: "auto",
 };
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function TransitionsModal() {
-  const {
-    modalData,
-    profileCoin,
-    toggleProfileCoin,
-    addToProfileList,
-    profileList,
-  } = useContext(appContext);
+  const { modalData, profileCoin, addToProfileList, profileList } =
+    useContext(appContext);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [inputValue, setInputValue] = useState(0);
-  const [finalValue, setFinalValue] = useState(0);
 
   return (
     <div className="flex flex-col justify-center items-center max-w-[100vw]">
@@ -60,86 +51,45 @@ export default function TransitionsModal() {
             <Fade in={open}>
               <Box sx={style}>
                 <div className="w-12/12">
-                  <tabel className="table-auto">
-                    <tr>
-                      <th className="w-20">Rank</th>
-                      <th className="w-60">Name</th>
-                      <th className="w-60">Price</th>
-                      <th className="w-60">marketCap</th>
-                      <th className="w-60">Check</th>
-                      <th className="w-60">Amount</th>
-                    </tr>
-
-                    {modalData.map((el) => (
-                      <tr key={el.uuid}>
-                        <td className="w-20 h-24">
-                          <div className="flex justify-center items-center">
-                            {el.rank}
-                          </div>
-                        </td>
-                        <td className="w-60 h-24  flex flex-col justify-center items-center">
-                          <img src={el.iconUrl} width={40} alt="symbol" />
-                          {el.name}
-                          <hr />
-                        </td>
-                        <td className="w-60 h-24">
-                          <div className="flex justify-center items-center">
-                            {Number(el.price).toLocaleString()}
-                          </div>
-                        </td>
-                        <td className="w-60 h-24">
-                          <div className="flex justify-center items-center">
-                            {Number(el.marketCap).toLocaleString()}
-                          </div>
-                        </td>
-                        <td className="w-60 h-24">
-                          <div className="flex justify-center items-center">
-                            <Checkbox
-                              {...label}
-                              color="success"
-                              onClick={() => {
-                                toggleProfileCoin(el);
-                              }}
-                            />
-                          </div>
-                        </td>
-                        <td className="w-60 h-24 ">
-                          <div className="flex justify-center items-center">
-                            {profileCoin[el.uuid] ? (
-                              <div>
-                                <input
-                                  value={inputValue}
-                                  id={profileCoin[el.uuid]}
-                                  onChange={(e) =>
-                                    setInputValue(e.target.value)
-                                  }
-                                  type={"number"}
-                                  className="p-5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
-                                />
-                              </div>
-                            ) : (
-                              <div>
-                                <input
-                                  type={"number"}
-                                  readOnly
-                                  className="p-5 focus-visible:none text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-24 h-5 mt-3 z-40"
-                                />
-                              </div>
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
+                  <div className="flex h-10 -mt-10 mb-10 font-bold">
+                    <div className="w-20 h-24  flex justify-center items-center">
+                      <div>Rank</div>
+                    </div>
+                    <div className="w-60 h-24  flex flex-col justify-center items-center">
+                      <h1>Name</h1>
+                      <hr />
+                    </div>
+                    <div className="w-60 h-24  flex justify-center items-center">
+                      <h1 className="">Price</h1>
+                    </div>
+                    <div className="w-60 h-24  flex justify-center items-center">
+                      <h1 className="flex justify-center items-center">
+                        MarketCap
+                      </h1>
+                    </div>
+                    <div className="w-60 h-24  flex justify-center items-center">
+                      <h1>Check</h1>
+                    </div>
+                    <div className="w-60 h-24 flex justify-center items-center ">
+                      <h1>Amount</h1>
+                    </div>
                     <hr />
-                  </tabel>
-                  <button
-                    onClick={() => {
-                      addToProfileList(profileCoin);
-                      setFinalValue(inputValue);
-                    }}
-                  >
-                    Add
-                  </button>
+                  </div>
+                  {modalData.map((el) => (
+                    <div key={el.uuid}>
+                      <ModalCard key={el.uuid} el={el} />
+                      <hr />
+                    </div>
+                  ))}
+                  <div className="w-12/12  flex items-center justify-center  ">
+                    <Button
+                      variant="contained"
+                      size="large"
+                      onClick={() => addToProfileList(profileCoin)}
+                    >
+                      ADD
+                    </Button>
+                  </div>
                 </div>
               </Box>
             </Fade>
@@ -151,7 +101,7 @@ export default function TransitionsModal() {
             <div key={profileList[key].uuid}>
               <h1>{profileList[key].name}</h1>
 
-              <h1>{(finalValue * profileList[key].price).toLocaleString()}</h1>
+              {/* <h1>{(finalValue * profileList[key].price).toLocaleString()}</h1> */}
             </div>
           ))}
         </div>
