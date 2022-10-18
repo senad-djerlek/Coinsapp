@@ -51,8 +51,13 @@ function Homepage() {
           alt="logo"
         />
       </div>
+
       <Search />
+
       <div className="w-10/12">
+        <h1 className="text-xl font-bold">
+          # Top 10 <span className="text-red-500">List</span>{" "}
+        </h1>
         <div className="flex justify-around items-center rounded-md mt-2 mb-2 h-[50px] overflow-hidden">
           <p className="w-5">Rank</p>
           <div className="w-14"></div>
